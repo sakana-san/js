@@ -1,0 +1,66 @@
+body {
+  background: #e0e0e0;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+.result {
+  width: 180px;
+  height: 180px;
+  margin: 30px auto;
+  background-color: #f44336;
+  border-radius: 50%;
+  line-height: 180px;
+  font-size: 48px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn, .pushed {
+  width: 200px;
+  margin: 0 auto;
+  padding: 5px;
+  background-color: #00aaff;
+  border-radius: 5px;
+  box-shadow: 0 4px 0 #0088cc;
+}
+.btn:hover, .pushed:hover {
+  opacity: 0.8;
+}
+
+.pushed {
+  margin-top: 36px;
+  box-shadow: 0 2px 0 #0088cc;
+}
+
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/

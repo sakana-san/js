@@ -32,7 +32,7 @@ module.exports = (grunt) ->
 			files:
 				expand: true
 				cwd: '<%= paths.srcDir %>css/'
-				src: '*.css'
+				src: 'common.css'
 				dest: '<%= paths.distDir %>css/'
 				ext: ".css"
 				
@@ -43,7 +43,7 @@ module.exports = (grunt) ->
 
 		watch:
 			css:
-				files: ['<%= paths.srcDir %>scss/*.scss','<%= paths.srcDir %>css/*.css']
+				files: ['<%= paths.srcDir %>scss/*.scss','<%= paths.srcDir %>css/common.css']
 				tasks: ['compass:dev','cssmin']
 			js:
 				files: '<%= paths.srcDir %>js/*.js'
