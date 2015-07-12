@@ -1,16 +1,14 @@
 (function(){
 	'use strict';
 	var isStarted = false;
-	var startTime;
-	var diff;
-	var msg = 'Stop at 00:05!';
-
+	var msg = 'STOP at 00:05!';
 	var result = document.getElementById('f-js-result');
 	var btn = document.getElementById('f-js-btn');
-
+	var startTime;
+	var diff;
 	result.innerHTML = msg;
 
-	btn.addEventListener('click', function() {
+	btn.addEventListener('click',function(){
 		if(!isStarted) {
 			isStarted = true;
 			this.innerHTML = 'STOP';
@@ -20,12 +18,11 @@
 			isStarted = false;
 			this.innerHTML = 'START';
 			diff = (Date.now() - startTime) / 1000 - 5;
-			//console.log(diff);
 			if(diff >= -0.1 && diff <= 0.1) {
 				result.innerHTML = 'Perfect!';
-			} else if (diff > 0) {
+			} else if(diff > 0) {
 				result.innerHTML = 'You are' + diff.toFixed(2) + 'seconds late!';
-			} else {
+			}else {
 				result.innerHTML = 'You are' + Math.abs(diff).toFixed(2) + 'seconds fast!';
 			}
 		}
