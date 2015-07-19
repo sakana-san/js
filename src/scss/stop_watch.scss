@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+.lyStopWatch {
+	background-color: #e0e0e0;
+	text-align: center;
+
+	.timerTxt {
+		margin: 40px auto;
+		color: #00aaff;
+		font-size: 128px;
+		text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	}
+
+	.s-btn {
+		display: inline-block;;
+		width: 100px;
+		padding: 7px;
+		margin-left: 10px;
+		border-radius: 5px;
+		box-shadow: 0 4px 0 #0088cc;
+		color: #fff;
+		background-color: #00aaff;
+		cursor: pointer;
+
+		&:nth-child(2) {
+			margin-left: 0;
+		}
+	}
+
+	.is-active {
+		opacity: 1.0;
+	}
+
+	.is-in-active {
+		opacity: 0.5;
+	}
+}
