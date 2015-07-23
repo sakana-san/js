@@ -3,6 +3,50 @@
 	var startTime;
 	var timerId;
 	var elapsedTime = 0;
+
+	var startBtn =document.getElementById('s-js-start');
+	var stopBtn =document.getElementById('s-js-stop');
+	var resetBtn =document.getElementById('s-js-reset');
+	var timerTxt =document.getElementById('s-js-timerTxt');
+
+	startBtn.addEventListener('click', function() {
+		startTime = Date.now();
+		updateTimerTxt();
+	});
+
+	stopBtn.addEventListener('click', function() {
+		elapsedTime += Date.now() - startTime;
+		clearTimeout(timerId);
+	});
+
+	resetBtn.addEventListener('click', function() {
+		timerTxt.innerHTML = '0.00';
+		elapsedTime = 0;
+	});
+
+	function updateTimerTxt() {
+		timerId = setTimeout(function() {
+			var t = Date.now() - startTime + elapsedTime;
+			timerTxt.innerHTML = (t / 1000).toFixed(2);
+			updateTimerTxt();
+		});
+	}
+
+})(); 
+
+/*
+結合代入演算子
+var a = 0;
+a += 10 - 2;
+console.log(a); 
+*/
+
+/*
+(function(){
+	'use strict';
+	var startTime;
+	var timerId;
+	var elapsedTime = 0;
 	var isRunning = false;
 
 
@@ -51,3 +95,4 @@
 		}, 10);
 	}
 })();
+*/
