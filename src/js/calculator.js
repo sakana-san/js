@@ -37,6 +37,9 @@
 	});
 })();
 
+//priceForm.value;
+//.valueはinputのvalueにアクセスするという定義
+
 //Math.floor
 //小数点切り捨て
 
