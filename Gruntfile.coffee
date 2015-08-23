@@ -39,7 +39,7 @@ module.exports = (grunt) ->
 		concat: 
 			files: 
 				src: '<%= paths.srcDir %>js/*.js'
-				dest: '<%= paths.distDir %>/js/common.js'
+				dest: '<%= paths.distDir %>js/common.js'
 
 		watch:
 			css:
