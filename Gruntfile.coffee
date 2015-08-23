@@ -59,7 +59,7 @@ module.exports = (grunt) ->
 				dest: '<%= paths.distDir %>css/'
 				ext: ".css"
 		concat: 
-			files: 
+			files:
 				src: '<%= paths.srcDir %>js/concat/**'
 				dest: '<%= paths.srcDir %>js/common.js'
 		uglify: 
