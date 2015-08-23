@@ -40,7 +40,7 @@ module.exports = (grunt) ->
 				dest: '<%= paths.distDir %>'
 			js:
 				expand: true
-				cwd: '<%= paths.distDir %>'
+				cwd: '<%= paths.srcDir %>'
 				src: 'js/common.js'
 				dest: '<%= paths.distDir %>'
 
@@ -60,8 +60,9 @@ module.exports = (grunt) ->
 				ext: ".css"
 		concat: 
 			files: 
-				src: '<%= paths.srcDir %>js/**'
-				dest: '<%= paths.srcDir %>js/common/common.js'
+				src: '<%= paths.srcDir %>js/concat/**'
+				dest: '<%= paths.srcDir %>js/common.js'
+				
 		uglify: 
 			files:
 				expand: true
@@ -73,8 +74,8 @@ module.exports = (grunt) ->
 				files: ['<%= paths.srcDir %>scss/**','<%= paths.srcDir %>css/common.css']
 				tasks: ['compass:dev','cssmin']
 			js:
-				files: ['<%= paths.srcDir %>js/*.js']
-				tasks: ['concat']
+				files: ['<%= paths.srcDir %>js/concat/**']
+				tasks: ['concat','uglify']
 
 	#plugin
 	grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -90,4 +91,3 @@ module.exports = (grunt) ->
 	#tasks
 	grunt.registerTask 'default',['concat','sprite','watch']
 	grunt.registerTask 'build',['clean:deleteDir','copy:html','copy:css','copy:images','copy:js','sprite','cssmin','concat','uglify']
-	
