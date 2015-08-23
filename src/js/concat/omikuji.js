@@ -1,3 +1,22 @@
+
+(function() {
+	var btn = document.getElementById('js-btn');
+	var resultName = document.getElementById('js-result');
+
+	btn.addEventListener('click',function(){
+		var results = ['大吉','小吉','中吉','吉','凶'];
+		var result = Math.floor(Math.random() * results.length);
+		resultName.innerHTML = results[result];
+	});
+	btn.addEventListener('mousedown',function(){
+		this.className = 'pushed';
+	});
+	btn.addEventListener('mouseup',function(){
+		this.className = 'btn';
+	});
+})();
+
+/*
 (function(){
 	var btn = document.getElementById('js-btn');
 	var resultName = document.getElementById('js-result');
@@ -14,8 +33,8 @@
 		this.className = 'btn';
 	});
 })();
+*/
 
-てすとだよ
 /*
 (function() {
  document.getElementById('js-btn').addEventListener('click', function() {
