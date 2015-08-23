@@ -94,3 +94,4 @@ module.exports = (grunt) ->
 	#tasks
 	grunt.registerTask 'default',['concat','sprite','watch']
 	grunt.registerTask 'build',['clean:deleteDir','copy:html','copy:css','copy:images','copy:js','copy:var','sprite','cssmin','concat','uglify']
+	
