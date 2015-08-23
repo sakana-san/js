@@ -60,11 +60,6 @@ module.exports = (grunt) ->
 				ext: ".css"
 		concat: 
 			files: 
-<<<<<<< HEAD
-				src: '<%= paths.srcDir %>js/*.js'
-				dest: '<%= paths.distDir %>js/common.js'
-
-=======
 				src: '<%= paths.srcDir %>js/concat/**'
 				dest: '<%= paths.srcDir %>js/common.js'
 		uglify: 
@@ -73,7 +68,6 @@ module.exports = (grunt) ->
 				cwd: '<%= paths.srcDir %>'
 				src: 'js/common.js'
 				dest: '<%= paths.distDir %>'
->>>>>>> 4df4437ed0f23cd3f3fb45720060d5b7705779e5
 		watch:
 			css:
 				files: ['<%= paths.srcDir %>scss/**','<%= paths.srcDir %>css/common.css']
