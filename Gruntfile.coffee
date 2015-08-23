@@ -43,7 +43,6 @@ module.exports = (grunt) ->
 				cwd: '<%= paths.srcDir %>'
 				src: 'js/common.js'
 				dest: '<%= paths.distDir %>'
-
 		sprite:
 			all:
 				src: '<%= paths.srcDir %>img/sprite/*.png'
@@ -62,7 +61,6 @@ module.exports = (grunt) ->
 			files: 
 				src: '<%= paths.srcDir %>js/concat/**'
 				dest: '<%= paths.srcDir %>js/common.js'
-				
 		uglify: 
 			files:
 				expand: true
