@@ -1,0 +1,43 @@
+.slide {
+	width: 600px;
+	height: 200px;
+	overflow: hidden;
+}
+.slide:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.slide-list {
+	position: relative;
+	width: 100%;
+	height: 200px;
+}
+.slide-list > .slide-list__image {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/*
+.slidePattern2 {
+	width: 600px;
+	height: 200px;
+	overflow: hidden;
+}
+.slidePattern2:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.slidePattern2-list {
+	position: relative;
+	width: 100%;
+	height: 200px;
+}
+.slidePattern2-list > .slidePattern2-list__image {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+*/
