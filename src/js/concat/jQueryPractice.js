@@ -1,28 +1,6 @@
+
 $(function() {
-	$('.js-cl-change').css('color','green');
-	$('.js-cb-change').css({'color': 'red','background': 'blue'});
-	$('.js-txt').text('エレン');
-	$('.js-txt-change').text('エレンが変わります');
-	$('.js-txt-change').html('エレンがさらに変わります');
-	$('.js-list').addClass('js-A-list');
-	$('.js-list li').remove();
-	$('.js-btn').on('click', function() {
-		alert('クリックしますた');
-	});
-	var inTxtClor = $('.js-cl-change-more').css('color','red');
-	$('.js-cl-change-more').html('悟空！', inTxtClor);
-	$('.js-click-class-add').on('click',function(){
-		$(this).toggleClass('added');
-	});
-});
-
-
-
-
-
-
-/*
-$(function() {
+	//questionA
 	$('.js-cl-change').css('color','red');
 	$('.js-cb-change').css({'color':'blue','background':'yellow'});
 	$('.js-txt').text('エレン');
@@ -57,6 +35,24 @@ $(function() {
 	$('.js-all-delete-btn').on('click',function() {
 		$('.js-all-delete').remove();
 	});
-	
+
+
+	//questionB
+	$('.js-ResizeImg').load(function() {
+		 $(this).css({'width':'500','height':'300'});
+		 $(window).resize(function() {
+		 	$('.js-ResizeImg').css({'width':'50','height':'30'});
+		 });
+	});
 });
-*/
+
+//prepend 
+//引数で指定したコンテンツを各要素の先頭に挿入する。
+//append
+//各要素に引数で指定したコンテンツを追加する
+//eq(-1)
+//最後から1番目の要素が選択される
+//prependTo
+//要素の中身を他の要素の先頭に挿入する。
+//例えば $(A).prepend(B) とした場合にAにBが挿入されるのに対して、$(A).prependTo(B) ではBにAが挿入される。
+//load()　ページが読み込まれたらアクションを起こす
