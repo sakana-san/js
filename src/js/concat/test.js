@@ -1,4 +1,3 @@
-
 $(function() {
 	//アコーディオン
 	$('.jsAdBtn').on('click', function() {
@@ -9,10 +8,6 @@ $(function() {
 		$('.ad-list').not(adMove).slideUp();
 		console.log(adMove);
 	});
-
-
-//.is(':visible' 表示されている場合
-//「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
 
 	//スライド
 	var slideImg = $('.slide-list');
@@ -33,8 +28,35 @@ $(function() {
 			console.log(count);
 		}
 	});
+
+//スライド ドットインストール編
+
+	var files = ['../dist/img/food1.jpg','../dist/img/food2.jpg','../dist/img/food3.jpg','../dist/img/food4.jpg'];
+	var Img;
+	for(var i=0; i<files.length; i++){
+		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
+		$('.thumbnails').append(Img);
+	}
+	$('.tnMain').append(
+		$('<img>').attr('src',files[0]).addClass('tnMainImg')
+	);
+	$('.thumbnailList').on('click', function() {
+		$('.tnMainImg').attr('src', $(this).attr('src'));
+	});
+/*
+	var Img;
+	for(var i=0; i<files.length; i++){
+		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
+		$('.thumbnails').append(Img);
+		console.log(files.length);
+	}
+*/
 });
 
+
+//.is(':visible' 表示されている場合
+//「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
+//.append() 各要素に引数で指定したコンテンツを追加する。
 
 /*
 var sum = 0;

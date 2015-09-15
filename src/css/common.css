@@ -44,8 +44,17 @@
 	left: 0;
 }
 */
-.ad-list {
-  display: none;
+.thumbnailsSlide {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.thumbnailList {
+  width: 125px;
+  height: 83px;
+}
+.thumbnailList + .thumbnailList {
+  margin-left: 4px;
 }
 
 /*

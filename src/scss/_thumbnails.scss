@@ -1,0 +1,12 @@
+.thumbnailsSlide{
+	margin: 10px auto;
+	text-align: center;
+}
+
+.thumbnailList {
+	width: 125px;
+	height: 83px;
+	& + .thumbnailList {
+		margin-left: 4px;
+	}
+}
