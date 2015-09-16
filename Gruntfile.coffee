@@ -36,7 +36,7 @@ module.exports = (grunt) ->
 			images:
 				expand: true
 				cwd: '<%= paths.srcDir %>'
-				src: 'img/*.png'
+				src: ['img/*.png','img/*.jpg']
 				dest: '<%= paths.distDir %>'
 			js:
 				expand: true
@@ -88,5 +88,5 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 
 	#tasks
-	grunt.registerTask 'default',['concat','sprite','watch']
+	grunt.registerTask 'default',['concat','sprite','copy:images','watch']
 	grunt.registerTask 'build',['clean:deleteDir','copy:html','copy:css','copy:images','copy:js','sprite','cssmin','concat','uglify']
