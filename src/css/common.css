@@ -52,9 +52,15 @@
 .thumbnailList {
   width: 125px;
   height: 83px;
+  opacity: 0.5;
+  cursor: pointer;
 }
 .thumbnailList + .thumbnailList {
   margin-left: 4px;
+}
+
+.current {
+  opacity: 1.0;
 }
 
 /*

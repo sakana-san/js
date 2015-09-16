@@ -28,11 +28,44 @@ $(function() {
 			console.log(count);
 		}
 	});
-
 //スライド ドットインストール編
 
+//1　縮小画像表示
+//2 clickイベント
+//3　前へ
+//4 次へ
+//5 縮小画像の強調表示
+//6　自動再生
+//7 タイマーの重複起動
+
+
+//1　縮小画像表示
+//1-1　配列作成
+//1-2 画像の変数を作成
+//1-3 画像がある分だけループさせる
+//1-4 .thumbnailsに変数Imgを表示させる
+//1-4 縮小画像用のクラスをつける thumbnailList
 	var files = ['../dist/img/food1.jpg','../dist/img/food2.jpg','../dist/img/food3.jpg','../dist/img/food4.jpg'];
 	var Img;
+	for(var i=0; i<files.length; i++){
+		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
+		$('.thumbnails').append(Img);
+	}
+//2クリックイベントの設定
+//2-1 .tnmainの中にimgを表示してクラスを表示するtnMainImg
+//2-2 .thumbnailListをクリックするごとにtnMainImgに画像が表示されるようにする
+	$('.tnMain').append(
+		$('<img>').attr('src', files[0]).addClass('tnMainImg')
+	);
+	$('.thumbnailList').on('click', function(){
+		$('.tnMainImg').attr('src', $(this).attr('src'));
+	});
+
+/*
+	var files = ['../dist/img/food1.jpg','../dist/img/food2.jpg','../dist/img/food3.jpg','../dist/img/food4.jpg'];
+	var Img;
+	var currentNum = 0;
+	var nowPlaying = false;
 	for(var i=0; i<files.length; i++){
 		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
 		$('.thumbnails').append(Img);
@@ -40,9 +73,48 @@ $(function() {
 	$('.tnMain').append(
 		$('<img>').attr('src',files[0]).addClass('tnMainImg')
 	);
+	$('.thumbnailList:first').addClass('current');
 	$('.thumbnailList').on('click', function() {
 		$('.tnMainImg').attr('src', $(this).attr('src'));
+		currentNum = $(this).index();
+		$(this).addClass('current').siblings().removeClass('current');
 	});
+	$('.prev').on('click', function() {
+		currentNum--;
+		if(currentNum<0){
+			currentNum = files.length-1;
+		}
+		$('.tnMainImg').attr('src',files[currentNum]);
+		$('.thumbnailList').removeClass('current');
+		$('.thumbnailList').eq(currentNum).addClass('current');
+	});
+	$('.next').on('click', function() {
+		currentNum++;
+		if(currentNum>files.length-1){
+			currentNum =  0;
+		}
+		$('.tnMainImg').attr('src',files[currentNum]);
+		$('.thumbnailList').removeClass('current');
+		$('.thumbnailList').eq(currentNum).addClass('current');
+	});
+	function autoPlay() {
+		$('.next').click();
+		timer = setTimeout(function() {
+			autoPlay();
+		}, 1000);
+	}
+	$('.play').on('click', function() {
+		if(nowPlaying) return;
+		nowPlaying = true;
+		autoPlay();
+	});
+	$('.stop').on('click', function() {
+		clearTimeout(timer);
+		nowPlaying = false;
+	});
+
+*/
+
 /*
 	var Img;
 	for(var i=0; i<files.length; i++){
@@ -57,6 +129,7 @@ $(function() {
 //.is(':visible' 表示されている場合
 //「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
 //.append() 各要素に引数で指定したコンテンツを追加する。
+//index() jQueryオブジェクト内で、引数で指定されたエレメントのインデックス番号を返す。インデックスは、ゼロから始まる連番。
 
 /*
 var sum = 0;
