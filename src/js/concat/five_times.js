@@ -1,29 +1,28 @@
-(function(){
+(function() {
 	'use strict';
-	var isStarted = false;
-	var msg = 'STOP at 00:05!';
-	var result = document.getElementById('f-js-result');
 	var btn = document.getElementById('f-js-btn');
+	var result = document.getElementById('f-js-result');
+	var isStarted = false;
 	var startTime;
 	var diff;
-	result.innerHTML = msg;
+	var msg = 'STOP at 00:05!';
 
-	btn.addEventListener('click',function(){
+	btn.addEventListener('click',function() {
 		if(!isStarted) {
 			isStarted = true;
-			this.innerHTML = 'STOP';
+			this.innerHTML  ='STOP';
 			startTime = Date.now();
 			result.innerHTML = msg;
 		} else {
 			isStarted = false;
 			this.innerHTML = 'START';
-			diff = (Date.now() - startTime) / 1000 - 5;
-			if(diff >= -0.1 && diff <= 0.1) {
+			diff = (Date.now() - startTime) / 1000 -5;
+			if(diff >= -0.1 && diff <= 0.1 ) {
 				result.innerHTML = 'Perfect!';
 			} else if(diff > 0) {
-				result.innerHTML = 'You are' + diff.toFixed(2) + 'seconds late!';
-			}else {
-				result.innerHTML = 'You are' + Math.abs(diff).toFixed(2) + 'seconds fast!';
+				result.innerHTML = 'あなたは' + diff.toFixed(2) + '遅いです。';
+			} else {
+				result.innerHTML = 'あなたは' + Math.abs(diff).toFixed(2) + '速いです。';
 			}
 		}
 	});
