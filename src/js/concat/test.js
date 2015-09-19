@@ -28,6 +28,7 @@ $(function() {
 			console.log(count);
 		}
 	});
+
 //スライド ドットインストール編
 
 //1　縮小画像表示
@@ -45,33 +46,57 @@ $(function() {
 //1-3 画像がある分だけループさせる
 //1-4 .thumbnailsに変数Imgを表示させる
 //1-4 縮小画像用のクラスをつける thumbnailList
-	var files = ['../dist/img/food1.jpg','../dist/img/food2.jpg','../dist/img/food3.jpg','../dist/img/food4.jpg'];
-	var Img;
-	for(var i=0; i<files.length; i++){
-		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
-		$('.thumbnails').append(Img);
-	}
+
 //2クリックイベントの設定
 //2-1 .tnmainの中にimgを表示してクラスを表示するtnMainImg
 //2-2 .thumbnailListをクリックするごとにtnMainImgに画像が表示されるようにする
-	$('.tnMain').append(
-		$('<img>').attr('src', files[0]).addClass('tnMainImg')
-	);
-	$('.thumbnailList').on('click', function(){
-		$('.tnMainImg').attr('src', $(this).attr('src'));
-	});
 
-/*
+//3前へボタンの実装
+//3-1 .prevをクリックする
+//3-2 .tnMainImgの画面が変化する　currentNumを変数で宣言する
+//3-3 もしcurrentNumが0より小さければfiles.length-1;を代入する
+
+//4次へボタンの実装
+//４-1 .nextをクリックする
+//４-2 .tnMainImgの画面が変化する　currentNumを変数で宣言する
+//４-3 もしcurrentNumがfiles.length -1より大きければ0を代入する
+
+//5 thumbnailListとボタンとの連動
+//5-1 カレントナンバー取得のコードを挿入
+
+//6 縮小画像を表示
+//6-1 scssをいじる
+//6-2 thumbnailList opacity:0.5; current opacity: 1.0;
+//6-3 最初の画像だけcurrentする
+//6-4 クリックした時にその画像をcurrent
+//6-5 クリック以外の画像はcurrentを削除 を使用
+//6-6 前へ次へボタンも、上記と同じようなcurrentを実装
+//6-7 thumbnailListのcurrentをremoveして、次の番号にcurrentをaddClass
+
+//7 自動再生機能を作ろう
+//7-1 タイマー用の変数timerを宣言
+//7-2 .playを押した時次の画像を表示。そのための繰り返し処理を作成。　別関数にする
+//7-3 別関数にnextをクリックした時の処理をしてくれるコードを記述
+//7-4 .playに関数を記述
+//7-5 止める時は、stopに止めるためのコードを記述
+
+//8　タイマーの重複起動を防ぐ
+//8-1 nowPlayingの変数をfalseで宣言 
+//8-2 もしnowPlayingがtrueだったらそれ以降の処理をしない。もしfalseならtrueにする
+//8-3 停止の時はnowPlayingをfalseにする。
+
+
 	var files = ['../dist/img/food1.jpg','../dist/img/food2.jpg','../dist/img/food3.jpg','../dist/img/food4.jpg'];
 	var Img;
+	var timer;
 	var currentNum = 0;
 	var nowPlaying = false;
-	for(var i=0; i<files.length; i++){
+	for(var i=0; i<files.length; i++) {
 		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
 		$('.thumbnails').append(Img);
 	}
 	$('.tnMain').append(
-		$('<img>').attr('src',files[0]).addClass('tnMainImg')
+		$('<img>').attr('src', files[0]).addClass('tnMainImg')
 	);
 	$('.thumbnailList:first').addClass('current');
 	$('.thumbnailList').on('click', function() {
@@ -81,7 +106,7 @@ $(function() {
 	});
 	$('.prev').on('click', function() {
 		currentNum--;
-		if(currentNum<0){
+		if(currentNum<0) {
 			currentNum = files.length-1;
 		}
 		$('.tnMainImg').attr('src',files[currentNum]);
@@ -90,10 +115,10 @@ $(function() {
 	});
 	$('.next').on('click', function() {
 		currentNum++;
-		if(currentNum>files.length-1){
-			currentNum =  0;
+		if(currentNum>files.length -1) {
+			currentNum = 0;
 		}
-		$('.tnMainImg').attr('src',files[currentNum]);
+		$('.tnMainImg').attr('src', files[currentNum]);
 		$('.thumbnailList').removeClass('current');
 		$('.thumbnailList').eq(currentNum).addClass('current');
 	});
@@ -101,7 +126,7 @@ $(function() {
 		$('.next').click();
 		timer = setTimeout(function() {
 			autoPlay();
-		}, 1000);
+		},1000);
 	}
 	$('.play').on('click', function() {
 		if(nowPlaying) return;
@@ -112,17 +137,6 @@ $(function() {
 		clearTimeout(timer);
 		nowPlaying = false;
 	});
-
-*/
-
-/*
-	var Img;
-	for(var i=0; i<files.length; i++){
-		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
-		$('.thumbnails').append(Img);
-		console.log(files.length);
-	}
-*/
 });
 
 
@@ -130,10 +144,9 @@ $(function() {
 //「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
 //.append() 各要素に引数で指定したコンテンツを追加する。
 //index() jQueryオブジェクト内で、引数で指定されたエレメントのインデックス番号を返す。インデックスは、ゼロから始まる連番。
-
+//eq() 要素集合から引数にインデックスを指定し、ひとつだけの要素を選択する。
 /*
 var sum = 0;
-
 for (var i = 0; i < 10; i++){
   sum+=2;
   console.log(sum);
