@@ -37,6 +37,15 @@ $(function() {
 	});
 
 
+	$('.js-ResizeImg').load(function() {
+		$(this).css({'width': '50', 'height': '30'});
+		$(window).resize(function() {
+			$('.js-ResizeImg').css({'width': '50', 'height' : '30'});
+		});
+	});
+	var Numbers = $('.js-numbers').children().length;
+	$('.js-number-result').text('liのタグは' + Numbers + '個');
+/*
 	//questionB
 	$('.js-ResizeImg').load(function() {
 		 $(this).css({'width':'500','height':'300'});
@@ -44,6 +53,7 @@ $(function() {
 		 	$('.js-ResizeImg').css({'width':'50','height':'30'});
 		 });
 	});
+*/
 });
 
 //prepend 
