@@ -1,0 +1,147 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$icon-arrow-l-name: 'iconArrow_l';
+$icon-arrow-l-x: 75px;
+$icon-arrow-l-y: 0px;
+$icon-arrow-l-offset-x: -75px;
+$icon-arrow-l-offset-y: 0px;
+$icon-arrow-l-width: 30px;
+$icon-arrow-l-height: 30px;
+$icon-arrow-l-total-width: 105px;
+$icon-arrow-l-total-height: 300px;
+$icon-arrow-l-image: '../../../dist/img/sprite.png';
+$icon-arrow-l: (75px, 0px, -75px, 0px, 30px, 30px, 105px, 300px, '../../../dist/img/sprite.png', 'iconArrow_l', );
+$icon-arrow-l-h-name: 'iconArrow_l_h';
+$icon-arrow-l-h-x: 75px;
+$icon-arrow-l-h-y: 35px;
+$icon-arrow-l-h-offset-x: -75px;
+$icon-arrow-l-h-offset-y: -35px;
+$icon-arrow-l-h-width: 30px;
+$icon-arrow-l-h-height: 30px;
+$icon-arrow-l-h-total-width: 105px;
+$icon-arrow-l-h-total-height: 300px;
+$icon-arrow-l-h-image: '../../../dist/img/sprite.png';
+$icon-arrow-l-h: (75px, 35px, -75px, -35px, 30px, 30px, 105px, 300px, '../../../dist/img/sprite.png', 'iconArrow_l_h', );
+$icon-arrow-r-name: 'iconArrow_r';
+$icon-arrow-r-x: 75px;
+$icon-arrow-r-y: 70px;
+$icon-arrow-r-offset-x: -75px;
+$icon-arrow-r-offset-y: -70px;
+$icon-arrow-r-width: 30px;
+$icon-arrow-r-height: 30px;
+$icon-arrow-r-total-width: 105px;
+$icon-arrow-r-total-height: 300px;
+$icon-arrow-r-image: '../../../dist/img/sprite.png';
+$icon-arrow-r: (75px, 70px, -75px, -70px, 30px, 30px, 105px, 300px, '../../../dist/img/sprite.png', 'iconArrow_r', );
+$icon-arrow-r-h-name: 'iconArrow_r_h';
+$icon-arrow-r-h-x: 75px;
+$icon-arrow-r-h-y: 105px;
+$icon-arrow-r-h-offset-x: -75px;
+$icon-arrow-r-h-offset-y: -105px;
+$icon-arrow-r-h-width: 30px;
+$icon-arrow-r-h-height: 30px;
+$icon-arrow-r-h-total-width: 105px;
+$icon-arrow-r-h-total-height: 300px;
+$icon-arrow-r-h-image: '../../../dist/img/sprite.png';
+$icon-arrow-r-h: (75px, 105px, -75px, -105px, 30px, 30px, 105px, 300px, '../../../dist/img/sprite.png', 'iconArrow_r_h', );
+$icon-item-name: 'iconItem';
+$icon-item-x: 0px;
+$icon-item-y: 0px;
+$icon-item-offset-x: 0px;
+$icon-item-offset-y: 0px;
+$icon-item-width: 70px;
+$icon-item-height: 300px;
+$icon-item-total-width: 105px;
+$icon-item-total-height: 300px;
+$icon-item-image: '../../../dist/img/sprite.png';
+$icon-item: (0px, 0px, 0px, 0px, 70px, 300px, 105px, 300px, '../../../dist/img/sprite.png', 'iconItem', );
+$icon-off-name: 'iconOff';
+$icon-off-x: 75px;
+$icon-off-y: 140px;
+$icon-off-offset-x: -75px;
+$icon-off-offset-y: -140px;
+$icon-off-width: 10px;
+$icon-off-height: 10px;
+$icon-off-total-width: 105px;
+$icon-off-total-height: 300px;
+$icon-off-image: '../../../dist/img/sprite.png';
+$icon-off: (75px, 140px, -75px, -140px, 10px, 10px, 105px, 300px, '../../../dist/img/sprite.png', 'iconOff', );
+$icon-on-name: 'iconOn';
+$icon-on-x: 90px;
+$icon-on-y: 140px;
+$icon-on-offset-x: -90px;
+$icon-on-offset-y: -140px;
+$icon-on-width: 10px;
+$icon-on-height: 10px;
+$icon-on-total-width: 105px;
+$icon-on-total-height: 300px;
+$icon-on-image: '../../../dist/img/sprite.png';
+$icon-on: (90px, 140px, -90px, -140px, 10px, 10px, 105px, 300px, '../../../dist/img/sprite.png', 'iconOn', );
+$spritesheet-width: 105px;
+$spritesheet-height: 300px;
+$spritesheet-image: '../../../dist/img/sprite.png';
+$spritesheet-sprites: ($icon-arrow-l, $icon-arrow-l-h, $icon-arrow-r, $icon-arrow-r-h, $icon-item, $icon-off, $icon-on, );
+$spritesheet: (105px, 300px, '../../../dist/img/sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
