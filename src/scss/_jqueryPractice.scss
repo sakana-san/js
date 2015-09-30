@@ -1,0 +1,12 @@
+
+.js-box {
+	position:relative;
+	height:250px;
+
+	.js-box__item {
+		width:150px;
+		height:150px;
+		background:#F0F;
+		position:absolute;
+	}
+}

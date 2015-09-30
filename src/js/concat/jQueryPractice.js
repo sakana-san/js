@@ -45,6 +45,17 @@ $(function() {
 	});
 	var Numbers = $('.js-numbers').children().length;
 	$('.js-number-result').text('liのタグは' + Numbers + '個');
+	
+	$('.js-numbers').children().on('click', function() {
+		var clickNumbers = $('.js-numbers').children().index(this);
+		console.log(clickNumbers);
+		$('.js-number-result-ver2').text('クリックしたのは' + clickNumbers + '番目');
+	});
+
+	$('.js-box__item').on('click', function() {
+		var moveLeft = $(this).offset().left;
+		$('.js-box__item').animate({'left': moveLeft + 500})
+	});
 /*
 	//questionB
 	$('.js-ResizeImg').load(function() {
