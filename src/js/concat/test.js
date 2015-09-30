@@ -1,4 +1,5 @@
 $(function() {
+	
 	//アコーディオン
 	$('.jsAdBtn').on('click', function() {
 		var adMove = $('+.ad-list', this);
@@ -28,7 +29,6 @@ $(function() {
 			console.log(count);
 		}
 	});
-
 //スライド ドットインストール編
 
 //1　縮小画像表示
