@@ -20,6 +20,7 @@
 }
 
 .btn {
+	position: relative;
 	width: 200px;
 	margin: 0 auto;
 	padding: 5px;
@@ -29,6 +30,15 @@
 	&:hover{
 		opacity: 0.8;
 	}
+	&:before {
+		content: "";
+		position: absolute;
+		top: 5px;
+		left: 7px;
+		width: 24px;
+		height: 24px;
+		@include sprite($droplet-3x);
+	}
 }
 
 .pushed {
@@ -36,3 +46,4 @@
 	margin-top: 36px;
 	box-shadow: 0 2px 0 #0088cc;
 }
+
