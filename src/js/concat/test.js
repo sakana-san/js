@@ -1,4 +1,5 @@
 $(function() {
+	
 	//アコーディオン
 	$('.jsAdBtn').on('click', function() {
 		var adMove = $('+.ad-list', this);
@@ -28,7 +29,6 @@ $(function() {
 			console.log(count);
 		}
 	});
-
 //スライド ドットインストール編
 
 //1　縮小画像表示
@@ -53,13 +53,13 @@ $(function() {
 
 //3前へボタンの実装
 //3-1 .prevをクリックする
-//3-2 .tnMainImgの画面が変化する　currentNumを変数で宣言する
-//3-3 もしcurrentNumが0より小さければfiles.length-1;を代入する
+//3-2 もしcurrentNumが0より小さければfiles.length-1;を代入する
+//3-3 .tnMainImgの画面が変化する　currentNumを変数で宣言する
 
 //4次へボタンの実装
 //４-1 .nextをクリックする
-//４-2 .tnMainImgの画面が変化する　currentNumを変数で宣言する
-//４-3 もしcurrentNumがfiles.length -1より大きければ0を代入する
+//４-2 もしcurrentNumがfiles.length -1より大きければ0を代入する
+//４-3 .tnMainImgの画面が変化する　currentNumを変数で宣言する
 
 //5 thumbnailListとボタンとの連動
 //5-1 カレントナンバー取得のコードを挿入
@@ -88,8 +88,8 @@ $(function() {
 
 	var files = ['../dist/img/food1.jpg','../dist/img/food2.jpg','../dist/img/food3.jpg','../dist/img/food4.jpg'];
 	var Img;
-	var timer;
 	var currentNum = 0;
+	var timer;
 	var nowPlaying = false;
 	for(var i=0; i<files.length; i++) {
 		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
@@ -136,6 +136,42 @@ $(function() {
 	$('.stop').on('click', function() {
 		clearTimeout(timer);
 		nowPlaying = false;
+	});
+
+
+	//スライドショー
+$(function() {
+    /* スライドバナー */
+    var slider = $('.p-slideAnimation');
+    var img = $('p-slideAnimation__list');
+    var imgW = img.width();
+    var imgM = parseInt(img.css('margin-right'));
+    var sliderWidth = (imgW + imgM) * img.length;
+    var imgID = 1;
+    slider.css('width', sliderWidth);
+    //console.log(sliderWidth);
+    
+    $('.p-slideNav__listBtn:not(.cur), .p-slidePrev, .p-slideNext').click(function() {
+	        if ($(this).is('.p-slidePrev')) {
+	            if (imgID <= 1) {
+	                imgID = img.length;
+	            } else {
+	                imgID = imgID - 1;
+	            }
+	        } else if ($(this).is('.p-slideNext')) {
+	            if (imgID >= img.length) {
+	                imgID = 1;
+	            } else {
+	                imgID = imgID + 1;
+	            }
+	        } else if ($(this).is('.p-slideNav__listBtn')) {
+	            imgID = $(this).index() + 1;
+	        }
+	        //console.log(imgID);
+	        slider.animate({ left: -(imgW + imgM) * (imgID - 1) + 70 }, 1000);
+	        $('.p-slideNav__listBtn').removeClass('cur').eq(imgID - 1).addClass('cur');
+	        return false;
+	    });
 	});
 });
 

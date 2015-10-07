@@ -13,7 +13,7 @@ module.exports = (grunt) ->
 				options:
 					httpPath: '/'
 					cssDir: '<%= paths.srcDir %>css/'
-					sassDir: '<%= paths.srcDir %>scss/'
+					sassDir: '<%= paths.srcDir %>sass/'
 					imagesDir: '<%= paths.srcDir %>img/'
 					javascriptDir: '<%= paths.srcDir %>js/'
 					outputStyle: 'expanded'
@@ -48,7 +48,7 @@ module.exports = (grunt) ->
 			all:
 				src: '<%= paths.srcDir %>img/sprite/*.png'
 				dest: '<%= paths.distDir %>img/sprite.png'
-				destCss: '<%= paths.srcDir %>scss/sprite/_sprite.scss'
+				destCss: '<%= paths.srcDir %>sass/sprite/_sprite.scss'
 				algorithm: 'binary-tree'
 				padding: 5
 		cssmin:
@@ -70,7 +70,7 @@ module.exports = (grunt) ->
 				dest: '<%= paths.distDir %>'
 		watch:
 			css:
-				files: ['<%= paths.srcDir %>scss/**','<%= paths.srcDir %>css/common.css']
+				files: ['<%= paths.srcDir %>sass/**','<%= paths.srcDir %>css/common.css']
 				tasks: ['compass:dev','cssmin']
 			js:
 				files: ['<%= paths.srcDir %>js/concat/**']
