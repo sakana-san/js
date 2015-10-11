@@ -3,14 +3,12 @@ $(function() {
 	//アコーディオン
 	$('.jsAdBtn').on('click', function() {
 		var adMove = $('+.ad-list', this);
-		
 		adMove.slideToggle();
 		//クリックした以外の.ad-listを上げる
 		$('.ad-list').not(adMove).slideUp();
-		console.log(adMove);
 	});
 
-	//スライド
+	//スライド猫会編
 	var slideImg = $('.slide-list');
 	var slideWidth = slideImg.width();
 	var slideImgList = slideImg.find('.slide-list__image');
@@ -19,18 +17,16 @@ $(function() {
 		slideImgList.eq(i).css('left',i * slideWidth + 'px');
 	}
 	$('.jsSlideBtn').on('click',function() {
-		
 		if(count != slideImgList.length -1) {
 			slideImg.animate({left: '-=' + slideWidth}, 1000);
 			count++;
 		}else{
 			slideImg.animate({left: 0},1000);
 			count = 0;
-			console.log(count);
 		}
 	});
-//スライド ドットインストール編
 
+//スライド ドットインストール編
 //1　縮小画像表示
 //2 clickイベント
 //3　前へ
@@ -91,6 +87,7 @@ $(function() {
 	var currentNum = 0;
 	var timer;
 	var nowPlaying = false;
+
 	for(var i=0; i<files.length; i++) {
 		Img = $('<img>').attr('src', files[i]).addClass('thumbnailList');
 		$('.thumbnails').append(Img);
@@ -115,7 +112,7 @@ $(function() {
 	});
 	$('.next').on('click', function() {
 		currentNum++;
-		if(currentNum>files.length -1) {
+		if(currentNum > files.length -1) {
 			currentNum = 0;
 		}
 		$('.tnMainImg').attr('src', files[currentNum]);
@@ -137,45 +134,7 @@ $(function() {
 		clearTimeout(timer);
 		nowPlaying = false;
 	});
-
-
-	//スライドショー
-$(function() {
-    /* スライドバナー */
-    var slider = $('.p-slideAnimation');
-    var img = $('.p-slideAnimation__list');
-    var imgW = img.width();
-    var imgM = parseInt(img.css('margin-right'));
-    var sliderWidth = (imgW + imgM) * img.length;
-    var imgID = 1;
-    slider.css('width', sliderWidth);
-    //console.log(sliderWidth);
-    
-    $('.p-slideNav__listBtn:not(.cur), .p-slidePrev, .p-slideNext').click(function() {
-	        if ($(this).is('.p-slidePrev')) {
-	            if (imgID <= 1) {
-	                imgID = img.length;
-	            } else {
-	                imgID = imgID - 1;
-	            }
-	        } else if ($(this).is('.p-slideNext')) {
-	            if (imgID >= img.length) {
-	                imgID = 1;
-	            } else {
-	                imgID = imgID + 1;
-	            }
-	        } else if ($(this).is('.p-slideNav__listBtn')) {
-	            imgID = $(this).index() + 1;
-	        }
-	        //console.log(imgID);
-	        slider.animate({ left: -(imgW + imgM) * (imgID - 1) + 70 }, 1000);
-	        $('.p-slideNav__listBtn').removeClass('cur').eq(imgID - 1).addClass('cur');
-	        return false;
-	    });
-	});
 });
-
-
 //.is(':visible' 表示されている場合
 //「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
 //.append() 各要素に引数で指定したコンテンツを追加する。
@@ -190,31 +149,110 @@ for (var i = 0; i < 10; i++){
 document.write("<p>2を10回加えた合計は" + sum + "</p>");
 */
 
-/*
 $(function() {
-	$('p').click(function(){
-		$(this).next().slideToggle();
+
+	///スライド　さかな屋cafe編 count = 0にする
+	var slideImg = $('.p-slideAnimation');
+	var slideImgList = slideImg.find('.p-slideAnimation__list');
+	var slideWidth = slideImgList.width();
+	var slideMargin = parseInt(slideImgList.css('margin-right'));
+	var slideWidthTotal = (slideWidth + slideMargin);
+	var count = 0;
+
+	$('.p-slidePrev').on('click', function() {
+		count--;
+		if (count < 0) {
+			count = slideImgList.length - 1;
+			console.log(count);
+		} 
+		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
 	});
 
-	var t = $('.slide > ul');
-	var w = t.width();
-	console.log(w);
-	var list = t.find('li');
-	
-	for(var i=0; i<list.length; i++){
-		list.eq(i).css('left',i * w + 'px');
-		console.log(i);	
-	}
-
-	var count = 0;
-	$('.slideBtn').on('click',function() {
-		if(count != list.length-1) {
-			t.animate({left: '-=' + w},1000);
-			count++;
-		} else {
-			t.animate({left: 0},1000);
+	$('.p-slideNext').on('click', function() {
+		count++;
+		if (count > slideImgList.length - 1) {
 			count = 0;
 		}
+		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
 	});
-});
+	
+	$('.p-slideNav__listBtn:first').addClass('cur');
+	$('.p-slideNav__listBtn').on('click', function() {
+		count = $(this).index();
+		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
+		$(this).addClass('cur').siblings().removeClass('cur');
+	});
+
+/*
+	//スライド　さかな屋cafe編 js名変えた
+	var slideImg = $('.p-slideAnimation');
+	var slideImgList = slideImg.find('.p-slideAnimation__list');
+	var slideWidth = slideImgList.width();
+	var slideMargin = parseInt(slideImgList.css('margin-right'));
+	var slideWidthTotal = (slideWidth + slideMargin) * slideImgList.length;
+	var count = 1;
+
+	$('.p-slidePrev').on('click', function() {
+		//countが1以下の時
+		if (count <= 1) {
+			//countに.p-slideAnimation__listを代入する
+			count = slideImgList.length;
+		} else {
+			//countが1以上の時countを1減らす
+			count = count - 1;
+		}
+
+		slideImg.animate({left: -(slideWidth + slideMargin) * (count - 1) + 70}, 1000);
+	});
+	$('.p-slideNext').on('click', function() {
+		//countが2以上の時
+		if (count >= slideImgList.length) {
+			//countに1を代入する
+			count = 1;
+		} else {
+			//そうではなく2以下の時countに1足す
+			count = count + 1;
+			
+		}
+		slideImg.animate({left: -(slideWidth + slideMargin) * (count - 1) + 70}, 1000);
+	});
+
+	$('.p-slideNav__listBtn').on('click', function() {
+		count = $(this).index() + 1;
+		slideImg.animate({left: -(slideWidth + slideMargin) * (count - 1) + 70}, 1000);
+		$(this).removeClass('cur').eq(count -1).addClass('cur');
+	});
 */
+/*
+	//スライド　さかな屋cafe編 基本コード
+	var slider = $('.p-slideAnimation');
+	var img = $('.p-slideAnimation__list');
+	var imgW = img.width();
+	var imgM = parseInt(img.css('margin-right'));
+	var sliderWidth = (imgW + imgM) * img.length;
+	var imgID = 1;
+	slider.css('width', sliderWidth);
+
+	$('.p-slideNav__listBtn:not(.cur), .p-slidePrev, .p-slideNext').click(function() {
+		if ($(this).is('.p-slidePrev')) {
+			if (imgID <= 1) {
+				imgID = img.length;
+			} else {
+				imgID = imgID - 1;
+			}
+		} else if ($(this).is('.p-slideNext')) {
+			if (imgID >= img.length) {
+				imgID = 1;
+			} else {
+				imgID = imgID + 1;
+			}
+		} else if ($(this).is('.p-slideNav__listBtn')) {
+			imgID = $(this).index() + 1;
+		}
+		//console.log(imgID);
+		slider.animate({ left: -(imgW + imgM) * (imgID - 1) + 70 }, 1000);
+		$('.p-slideNav__listBtn').removeClass('cur').eq(imgID - 1).addClass('cur');
+		return false;
+	});
+*/
+});
