@@ -1,6 +1,24 @@
 
+.c-icon
+	display: block
+
 .c-iconArrowLeft
 	+sprite($arrow-left)
+	margin: 140px 0 0 20px
+	&:hover
+		+sprite($arrow-left-h)
 
 .c-iconArrowRight
 	+sprite($arrow-right)
+	margin: 140px 20px 0
+	&:hover
+		+sprite($arrow-right-h)
+
+.c-iconCircle
+	+sprite($circle)
+	&:hover
+		+sprite($circle-h)
+.c-iconBg
+	+sprite($bg)
+	width: 70px
+	height: 340px

@@ -143,7 +143,7 @@ $(function() {
 $(function() {
     /* スライドバナー */
     var slider = $('.p-slideAnimation');
-    var img = $('p-slideAnimation__list');
+    var img = $('.p-slideAnimation__list');
     var imgW = img.width();
     var imgM = parseInt(img.css('margin-right'));
     var sliderWidth = (imgW + imgM) * img.length;
