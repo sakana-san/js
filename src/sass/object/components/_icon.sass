@@ -17,8 +17,15 @@
 .c-iconCircle
 	+sprite($circle)
 	&:hover
-		+sprite($circle-h)
+		opacity: 0
+.c-iconBgCircle
+	+sprite($circle-h)
+
 .c-iconBg
 	+sprite($bg)
 	width: 70px
 	height: 340px
+
+.cur 
+	>.c-icon
+		opacity: 0
