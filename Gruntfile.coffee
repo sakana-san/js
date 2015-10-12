@@ -74,7 +74,7 @@ module.exports = (grunt) ->
 				tasks: ['compass:dev','cssmin']
 			js:
 				files: ['<%= paths.srcDir %>js/concat/**']
-				tasks: ['concat','uglify']
+				tasks: ['concat']
 
 	#plugin
 	grunt.loadNpmTasks 'grunt-contrib-concat'
