@@ -8,6 +8,38 @@ $(function() {
 		$('.ad-list').not(adMove).slideUp();
 	});
 
+	$("dl.subList").hide().children("dd").hide();
+	
+	$("ul#accordionBox h3").click(function () {
+		funcClickEvent($(this), $("dl.subList"), $("ul#accordionBox h3"));	
+		console.log($(this));				  
+	});
+	
+	$("dl.subList dt").click(function () {
+		//funcClickEvent($(this), $("dl.subList dd"), $("dl.subList dt"));	
+	});
+	
+	function funcClickEvent(dw, dt, h3){
+		$(h3).toggleClass("mainOpened");
+		$(h3).not($(dw)).removeClass("mainOpened");
+		//$(dt)//.next(dd).slideToggle('normal');
+		//$(dd).not(dt.next(dd)).slideUp();
+	}
+
+	//アコーディオン　さかな屋Cafe
+	$('.c-AdBtn').on('click', function() {
+		clickEvent($(this),$('.c-AdBtn')); 
+		var adMove = $('+.p-accordionList__title', this);
+		adMove.slideToggle();
+		$('.p-accordionList__title').not(adMove).slideUp();
+	});
+
+	function clickEvent(a, b) {
+		$(b).toggleClass("current");
+		$(b).not($(a)).removeClass("current");
+		//$('.p-accordionList__title').next(li).slideToggle();
+	} 
+
 	//スライド猫会編
 	var slideImg = $('.slide-list');
 	var slideWidth = slideImg.width();
@@ -135,19 +167,6 @@ $(function() {
 		nowPlaying = false;
 	});
 });
-//.is(':visible' 表示されている場合
-//「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
-//.append() 各要素に引数で指定したコンテンツを追加する。
-//index() jQueryオブジェクト内で、引数で指定されたエレメントのインデックス番号を返す。インデックスは、ゼロから始まる連番。
-//eq() 要素集合から引数にインデックスを指定し、ひとつだけの要素を選択する。
-/*
-var sum = 0;
-for (var i = 0; i < 10; i++){
-  sum+=2;
-  console.log(sum);
-}
-document.write("<p>2を10回加えた合計は" + sum + "</p>");
-*/
 
 $(function() {
 
@@ -159,7 +178,7 @@ $(function() {
 	var slideWidthTotal = (slideWidth + slideMargin);
 	var count = 0;
 
-	$('.p-slidePrev').on('click', function() {
+	$('.c-slidePrev').on('click', function() {
 		count--;
 		if (count < 0) {
 			count = slideImgList.length - 1;
@@ -168,7 +187,7 @@ $(function() {
 		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
 	});
 
-	$('.p-slideNext').on('click', function() {
+	$('.c-slideNext').on('click', function() {
 		count++;
 		if (count > slideImgList.length - 1) {
 			count = 0;
@@ -176,8 +195,8 @@ $(function() {
 		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
 	});
 	
-	$('.p-slideNav__listBtn:first').addClass('cur');
-	$('.p-slideNav__listBtn').on('click', function() {
+	$('.c-slideNav__listBtn:first').addClass('cur');
+	$('.c-slideNav__listBtn').on('click', function() {
 		count = $(this).index();
 		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
 		$(this).addClass('cur').siblings().removeClass('cur');
@@ -192,7 +211,7 @@ $(function() {
 	var slideWidthTotal = (slideWidth + slideMargin) * slideImgList.length;
 	var count = 1;
 
-	$('.p-slidePrev').on('click', function() {
+	$('.c-slidePrev').on('click', function() {
 		//countが1以下の時
 		if (count <= 1) {
 			//countに.p-slideAnimation__listを代入する
@@ -204,7 +223,7 @@ $(function() {
 
 		slideImg.animate({left: -(slideWidth + slideMargin) * (count - 1) + 70}, 1000);
 	});
-	$('.p-slideNext').on('click', function() {
+	$('.c-slideNext').on('click', function() {
 		//countが2以上の時
 		if (count >= slideImgList.length) {
 			//countに1を代入する
@@ -217,7 +236,7 @@ $(function() {
 		slideImg.animate({left: -(slideWidth + slideMargin) * (count - 1) + 70}, 1000);
 	});
 
-	$('.p-slideNav__listBtn').on('click', function() {
+	$('.c-slideNav__listBtn').on('click', function() {
 		count = $(this).index() + 1;
 		slideImg.animate({left: -(slideWidth + slideMargin) * (count - 1) + 70}, 1000);
 		$(this).removeClass('cur').eq(count -1).addClass('cur');
@@ -233,26 +252,40 @@ $(function() {
 	var imgID = 1;
 	slider.css('width', sliderWidth);
 
-	$('.p-slideNav__listBtn:not(.cur), .p-slidePrev, .p-slideNext').click(function() {
-		if ($(this).is('.p-slidePrev')) {
+	$('.c-slideNav__listBtn:not(.cur), .c-slidePrev, .c-slideNext').click(function() {
+		if ($(this).is('.c-slidePrev')) {
 			if (imgID <= 1) {
 				imgID = img.length;
 			} else {
 				imgID = imgID - 1;
 			}
-		} else if ($(this).is('.p-slideNext')) {
+		} else if ($(this).is('.pcslideNext')) {
 			if (imgID >= img.length) {
 				imgID = 1;
 			} else {
 				imgID = imgID + 1;
 			}
-		} else if ($(this).is('.p-slideNav__listBtn')) {
+		} else if ($(this).is('.c-slideNav__listBtn')) {
 			imgID = $(this).index() + 1;
 		}
 		//console.log(imgID);
 		slider.animate({ left: -(imgW + imgM) * (imgID - 1) + 70 }, 1000);
-		$('.p-slideNav__listBtn').removeClass('cur').eq(imgID - 1).addClass('cur');
+		$('.c-slideNav__listBtn').removeClass('cur').eq(imgID - 1).addClass('cur');
 		return false;
 	});
 */
+//.is(':visible' 表示されている場合
+//「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
+//.append() 各要素に引数で指定したコンテンツを追加する。
+//index() jQueryオブジェクト内で、引数で指定されたエレメントのインデックス番号を返す。インデックスは、ゼロから始まる連番。
+//eq() 要素集合から引数にインデックスを指定し、ひとつだけの要素を選択する。
+/*
+var sum = 0;
+for (var i = 0; i < 10; i++){
+  sum+=2;
+  console.log(sum);
+}
+document.write("<p>2を10回加えた合計は" + sum + "</p>");
+*/
+
 });

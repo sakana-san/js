@@ -5,7 +5,7 @@
 	<title>default_title</title>
 	<link rel="stylesheet" href="./dist/css/common.css" type="text/css" >
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="./dist/js/common.js"></script>
+	<script src="./src/js/common.js"></script>
 </head>
 <body class="">
 
@@ -37,9 +37,81 @@
 		</li>
 	</ul>
 
-	<div>
-		<img src="" alt="">
+	<ul id="accordionBox">
+    <li class="mainTrigger"><h3>メイントリガー1</h3>
+        <dl class="subList">
+            <dt class="subTrigger">サブトリガー1-1</dt>
+            <dd><p>サブトリガー1-1コンテンツ</p></dd>
+            <dt class="subTrigger">サブトリガー1-2</dt>
+            <dd><p>サブトリガー1-2コンテンツ</p></dd>
+            <dt class="subTrigger">サブトリガー1-3</dt>
+            <dd><p>サブトリガー1-3コンテンツ</p></dd>
+        </dl>
+    </li>
+    <li class="mainTrigger"><h3>メイントリガー2</h3>
+        <dl class="subList">
+            <dt class="subTrigger">サブトリガー2-1</dt>
+            <dd><p>サブトリガー2-1コンテンツ</p></dd>
+            <dt class="subTrigger">サブトリガー2-2</dt>
+            <dd><p>サブトリガー2-2コンテンツ</p></dd>
+            <dt class="subTrigger">サブトリガー2-3</dt>
+            <dd><p>サブトリガー2-3コンテンツ</p></dd>
+        </dl>
+    </li>
+    <li class="mainTrigger"><h3>メイントリガー3</h3>
+        <dl class="subList">
+            <dt class="subTrigger">サブトリガー3-1</dt>
+            <dd><p>サブトリガー3-1コンテンツ</p></dd>
+            <dt class="subTrigger">サブトリガー3-2</dt>
+            <dd><p>サブトリガー3-2コンテンツ</p></dd>
+            <dt class="subTrigger">サブトリガー3-3</dt>
+            <dd><p>サブトリガー3-3コンテンツ</p></dd>
+        </dl>
+    </li>
+</ul>
+
+
+	<h1>さかな屋CafesubNav編</h1>
+
+	<div class="p-subNavArea">
+		<nav>
+			<ul class="p-accordion">
+				<li class="p-accordionList">
+					<p class="c-AdBtn c-iconSubNav--aboutUs">about us</p>
+					<ul class="p-accordionList__title">
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>メンバー紹介</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>お店の特徴</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>近所の仲間たち</a></li>
+					</ul>
+				</li>
+				<li class="p-accordionList">
+					<p class="c-AdBtn c-iconSubNav--cafe">cafe</p>
+					<ul class="p-accordionList__title">
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>コーヒーの産地について</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>豆の挽き方</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>シュガーについて</a></li>
+					</ul>
+				</li>
+				<li class="p-accordionList">
+					<p class="c-AdBtn c-iconSubNav--bread">bread</p>
+					<ul class="p-accordionList__title">
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>パン紹介</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>美味しさの秘訣</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>小麦粉特集</a></li>
+					</ul>
+				</li>
+				<li class="p-accordionList">
+					<p class="c-AdBtn c-iconSubNav--history">history</p>
+					<ul class="p-accordionList__title">
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>店ができるまで</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>店主の青春時代</a></li>
+						<li class="p-accordionList__subTitle"><a href=""><i class="c-iconFish"></i>こだわりパンの行程</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 	</div>
+
 
 	<h1>さかな屋Cafe編</h1>
 	<div class="p-slideArea">
@@ -52,12 +124,12 @@
 				</ul>
 			</div>
 			<ul class="p-slideNav">
-				<li class="p-slideNav__listBtn c-iconBgCircle"><a href="#" class="c-icon c-iconCircle"></a></li>
-				<li class="p-slideNav__listBtn c-iconBgCircle"><a href="#" class="c-icon c-iconCircle"></a></li>
-				<li class="p-slideNav__listBtn c-iconBgCircle"><a href="#" class="c-icon c-iconCircle"></a></li>
+				<li class="c-slideNav__listBtn c-iconBgCircle"><a href="#" class="c-icon c-iconCircle"></a></li>
+				<li class="c-slideNav__listBtn c-iconBgCircle"><a href="#" class="c-icon c-iconCircle"></a></li>
+				<li class="c-slideNav__listBtn c-iconBgCircle"><a href="#" class="c-icon c-iconCircle"></a></li>
 			</ul>
-			<p class="p-slidePrev c-iconBg"><a href="#" class="c-icon c-iconArrowLeft"></a></p>
-			<p class="p-slideNext c-iconBg"><a href="#" class="c-icon c-iconArrowRight"></a></p>
+			<p class="c-slidePrev c-iconBg"><a href="#" class="c-icon c-iconArrowLeft"></a></p>
+			<p class="c-slideNext c-iconBg"><a href="#" class="c-icon c-iconArrowRight"></a></p>
 		</div>
 	</div>
 
