@@ -29,13 +29,14 @@ $(function() {
 
 	//アコーディオン　さかな屋Cafe
 	$('.c-AdBtn').on('click', function() {
-		currentEvent($(this),$('.c-AdBtn')); 
+		//.c-AdBtn: .c-AdBtnクラスを全て指定、$(this) : $('.c-AdBtn').on('click')を指定
+		currentEvent($('.c-AdBtn'),$(this)); 
 		var adMove = $('+.p-accordionList__title', this);
 		adMove.slideToggle();
 		$('.p-accordionList__title').not(adMove).slideUp();
 	});
 
-	function currentEvent(hide, display) {
+	function currentEvent(display, hide) {
 		//クリックした時に.c-AdBtnにcurrentクラス表示
 		display.toggleClass('current');
 		//クリックした時にクリックされてない.c-AdBtnにあるcurrentクラスを削除
