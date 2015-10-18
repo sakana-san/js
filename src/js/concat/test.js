@@ -8,6 +8,7 @@ $(function() {
 		$('.ad-list').not(adMove).slideUp();
 	});
 
+	//実験的アコーディオン
 	$("dl.subList").hide().children("dd").hide();
 	
 	$("ul#accordionBox h3").click(function () {
@@ -28,17 +29,18 @@ $(function() {
 
 	//アコーディオン　さかな屋Cafe
 	$('.c-AdBtn').on('click', function() {
-		clickEvent($(this),$('.c-AdBtn')); 
+		currentEvent($(this),$('.c-AdBtn')); 
 		var adMove = $('+.p-accordionList__title', this);
 		adMove.slideToggle();
 		$('.p-accordionList__title').not(adMove).slideUp();
 	});
 
-	function clickEvent(a, b) {
-		$(b).toggleClass("current");
-		$(b).not($(a)).removeClass("current");
-		//$('.p-accordionList__title').next(li).slideToggle();
-	} 
+	function currentEvent(hide, display) {
+		//クリックした時に.c-AdBtnにcurrentクラス表示
+		display.toggleClass('current');
+		//クリックした時にクリックされてない.c-AdBtnにあるcurrentクラスを削除
+		display.not($(hide)).removeClass('current');
+	}} 
 
 	//スライド猫会編
 	var slideImg = $('.slide-list');
