@@ -1,5 +1,4 @@
 $(function() {
-	
 	//アコーディオン
 	$('.jsAdBtn').on('click', function() {
 		var adMove = $('+.ad-list', this);

@@ -65,7 +65,7 @@ module.exports = (grunt) ->
 		uglify: 
 			files:
 				expand: true
-				cwd: '<%= paths.srcDir %>'
+				cwd: '<%= paths.distDir %>'
 				src: 'js/common.js'
 				dest: '<%= paths.distDir %>'
 		watch:
