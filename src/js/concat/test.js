@@ -10,16 +10,13 @@ $(function() {
 
 	//実験的アコーディオン
 	$("dl.subList").hide().children("dd").hide();
-	
 	$("ul#accordionBox h3").click(function () {
 		funcClickEvent($(this), $("dl.subList"), $("ul#accordionBox h3"));	
 		console.log($(this));				  
 	});
-	
 	$("dl.subList dt").click(function () {
 		//funcClickEvent($(this), $("dl.subList dd"), $("dl.subList dt"));	
 	});
-	
 	function funcClickEvent(dw, dt, h3){
 		$(h3).toggleClass("mainOpened");
 		$(h3).not($(dw)).removeClass("mainOpened");
@@ -41,7 +38,7 @@ $(function() {
 		display.toggleClass('current');
 		//クリックした時にクリックされてない.c-AdBtnにあるcurrentクラスを削除
 		display.not($(hide)).removeClass('current');
-	}} 
+	}
 
 	//スライド猫会編
 	var slideImg = $('.slide-list');
@@ -188,6 +185,8 @@ $(function() {
 			console.log(count);
 		} 
 		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
+		$('.c-slideNav__listBtn').removeClass('cur');
+		$('.c-slideNav__listBtn').eq(count).addClass('cur');
 	});
 
 	$('.c-slideNext').on('click', function() {
@@ -196,6 +195,8 @@ $(function() {
 			count = 0;
 		}
 		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
+		$('.c-slideNav__listBtn').removeClass('cur');
+		$('.c-slideNav__listBtn').eq(count).addClass('cur');
 	});
 	
 	$('.c-slideNav__listBtn:first').addClass('cur');
@@ -281,7 +282,7 @@ $(function() {
 //「:visible」は表示されている要素を抽出するためのもので、これとis()を組む合わせて利用します。
 //.append() 各要素に引数で指定したコンテンツを追加する。
 //index() jQueryオブジェクト内で、引数で指定されたエレメントのインデックス番号を返す。インデックスは、ゼロから始まる連番。
-//eq() 要素集合から引数にインデックスを指定し、ひとつだけの要素を選択する。
+//eq() 引数にインデックスを指定し、ひとつだけの要素を選択する。
 /*
 var sum = 0;
 for (var i = 0; i < 10; i++){
