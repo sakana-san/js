@@ -61,7 +61,7 @@ module.exports = (grunt) ->
 		concat: 
 			files: 
 				src: '<%= paths.srcDir %>js/concat/**'
-				dest: '<%= paths.srcDir %>js/common.js'
+				dest: '<%= paths.distDir %>js/common.js'
 		uglify: 
 			files:
 				expand: true
