@@ -13,7 +13,7 @@ module.exports = (grunt) ->
 				options:
 					httpPath: '/'
 					cssDir: '<%= paths.srcDir %>css/'
-					sassDir: '<%= paths.srcDir %>scss/'
+					sassDir: '<%= paths.srcDir %>sass/'
 					imagesDir: '<%= paths.srcDir %>img/'
 					javascriptDir: '<%= paths.srcDir %>js/'
 					outputStyle: 'expanded'
@@ -36,7 +36,7 @@ module.exports = (grunt) ->
 			images:
 				expand: true
 				cwd: '<%= paths.srcDir %>'
-				src: 'img/*.png'
+				src: ['img/*.png','img/*.jpg']
 				dest: '<%= paths.distDir %>'
 			js:
 				expand: true
@@ -48,7 +48,7 @@ module.exports = (grunt) ->
 			all:
 				src: '<%= paths.srcDir %>img/sprite/*.png'
 				dest: '<%= paths.distDir %>img/sprite.png'
-				destCss: '<%= paths.srcDir %>scss/sprite/_sprite.scss'
+				destCss: '<%= paths.srcDir %>sass/sprite/_sprite.scss'
 				algorithm: 'binary-tree'
 				padding: 5
 		cssmin:
@@ -61,7 +61,7 @@ module.exports = (grunt) ->
 		concat: 
 			files: 
 				src: '<%= paths.srcDir %>js/concat/**'
-				dest: '<%= paths.srcDir %>js/common.js'
+				dest: '<%= paths.distDir %>js/common.js'
 		uglify: 
 			files:
 				expand: true
@@ -70,11 +70,11 @@ module.exports = (grunt) ->
 				dest: '<%= paths.distDir %>'
 		watch:
 			css:
-				files: ['<%= paths.srcDir %>scss/**','<%= paths.srcDir %>css/common.css']
+				files: ['<%= paths.srcDir %>sass/**','<%= paths.srcDir %>css/common.css']
 				tasks: ['compass:dev','cssmin']
 			js:
 				files: ['<%= paths.srcDir %>js/concat/**']
-				tasks: ['concat','uglify']
+				tasks: ['concat']
 
 	#plugin
 	grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -88,5 +88,5 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 
 	#tasks
-	grunt.registerTask 'default',['concat','sprite','watch']
+	grunt.registerTask 'default',['concat','sprite','copy:images','watch']
 	grunt.registerTask 'build',['clean:deleteDir','copy:html','copy:css','copy:images','copy:js','sprite','cssmin','concat','uglify']
