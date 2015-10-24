@@ -17,7 +17,9 @@ $(function() {
 			count = 0;
 		}
 	});
+});
 
+$(function() {
 //スライド ドットインストール編
 //1　縮小画像表示
 //2 clickイベント
@@ -128,8 +130,8 @@ $(function() {
 	});
 });
 
-$(function() {
 
+$(function() {
 	///スライド　さかな屋cafe編 count = 0にする
 	var slideImg = $('.p-slideAnimation');
 	var slideImgList = slideImg.find('.p-slideAnimation__list');
