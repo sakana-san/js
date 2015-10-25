@@ -28,3 +28,8 @@ The `sprites` mixin generates identical output to the CSS template
 
 @include sprites($spritesheet-sprites);
 */
+.p-box {
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+}
