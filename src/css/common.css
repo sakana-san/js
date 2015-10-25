@@ -1,4 +1,8 @@
+@charset "UTF-8";
 .lyCalculator {
+  font-size: 16px;
+  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Meiryo", "メイリオ", "MSPゴシック", sans-serif;
+  line-height: 1.8;
   text-align: center;
   font-size: 16px;
 }
@@ -13,7 +17,8 @@
   font-size: 18px;
   text-align: right;
 }
-.lyCalculator .c-btn {
+
+.c-btn {
   width: 180px;
   margin: 30px auto;
   padding: 7px;
@@ -23,7 +28,7 @@
   color: #fff;
   cursor: pointer;
 }
-.lyCalculator .c-btn:hover {
+.c-btn:hover {
   opacity: 0.8;
 }
 
