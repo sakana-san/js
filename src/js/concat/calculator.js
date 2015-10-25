@@ -1,3 +1,7 @@
+
+
+
+
 (function(){
 	'use strict';
 	var priceForm = document.getElementById('c-js-price');
@@ -29,7 +33,11 @@
 				y1 = price - (x1 * num);
 				x2 = Math.ceil(price / num / unit) * unit;
 				y2 = Math.abs(price - (x2 * num));
-				result.innerHTML = '一人' + x1 + '円だと' + y1 + '円足りません。 <br>' + '一人' + x2 + '円だと' + y2 + '円余ります。';
+				if (x1 == 0) {
+					result.innerHTML = '一人' + x2 + '円だと' + y2 + '円余ります。';
+				} else {
+					result.innerHTML = '一人' + x1 + '円だと' + y1 + '円足りません。 <br>' + '一人' + x2 + '円だと' + y2 + '円余ります。';
+				}
 			}
 		} else {
 			result.innerHTML = '入力された値に誤りがあります。';
