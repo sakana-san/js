@@ -1,7 +1,3 @@
-
-
-
-
 (function(){
 	'use strict';
 	var priceForm = document.getElementById('c-js-price');
