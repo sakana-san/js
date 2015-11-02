@@ -99,17 +99,17 @@ $fish-total-width: 520px;
 $fish-total-height: 300px;
 $fish-image: '../../../dist/img/sprite.png';
 $fish: (493px, 165px, -493px, -165px, 15px, 9px, 520px, 300px, '../../../dist/img/sprite.png', 'fish', );
-$pagetop-name: 'pagetop';
-$pagetop-x: 300px;
-$pagetop-y: 165px;
-$pagetop-offset-x: -300px;
-$pagetop-offset-y: -165px;
-$pagetop-width: 48px;
-$pagetop-height: 48px;
-$pagetop-total-width: 520px;
-$pagetop-total-height: 300px;
-$pagetop-image: '../../../dist/img/sprite.png';
-$pagetop: (300px, 165px, -300px, -165px, 48px, 48px, 520px, 300px, '../../../dist/img/sprite.png', 'pagetop', );
+$page-top-name: 'pageTop';
+$page-top-x: 300px;
+$page-top-y: 165px;
+$page-top-offset-x: -300px;
+$page-top-offset-y: -165px;
+$page-top-width: 48px;
+$page-top-height: 48px;
+$page-top-total-width: 520px;
+$page-top-total-height: 300px;
+$page-top-image: '../../../dist/img/sprite.png';
+$page-top: (300px, 165px, -300px, -165px, 48px, 48px, 520px, 300px, '../../../dist/img/sprite.png', 'pageTop', );
 $sub-nav01-name: 'subNav01';
 $sub-nav01-x: 300px;
 $sub-nav01-y: 110px;
@@ -201,7 +201,7 @@ $sub-nav04-h: (75px, 0px, -75px, 0px, 220px, 50px, 520px, 300px, '../../../dist/
 $spritesheet-width: 520px;
 $spritesheet-height: 300px;
 $spritesheet-image: '../../../dist/img/sprite.png';
-$spritesheet-sprites: ($arrow-left, $arrow-left-h, $arrow-right, $arrow-right-h, $bg, $circle, $circle-h, $fish, $pagetop, $sub-nav01, $sub-nav01-h, $sub-nav02, $sub-nav02-h, $sub-nav03, $sub-nav03-h, $sub-nav04, $sub-nav04-h, );
+$spritesheet-sprites: ($arrow-left, $arrow-left-h, $arrow-right, $arrow-right-h, $bg, $circle, $circle-h, $fish, $page-top, $sub-nav01, $sub-nav01-h, $sub-nav02, $sub-nav02-h, $sub-nav03, $sub-nav03-h, $sub-nav04, $sub-nav04-h, );
 $spritesheet: (520px, 300px, '../../../dist/img/sprite.png', $spritesheet-sprites, );
 
 /*
