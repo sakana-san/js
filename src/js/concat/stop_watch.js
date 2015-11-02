@@ -10,9 +10,9 @@
 	var timerTxt = document.getElementById('s-js-timerTxt');
 
 	function setBtnState(start, stop, reset)  {
-		startBtn.className = start ? 's-btn is-active' : 's-btn is-in-active';
-		stopBtn.className = stop ? 's-btn is-active' : 's-btn is-in-active';
-		resetBtn.className = reset ? 's-btn is-active' : 's-btn is-in-active';
+		startBtn.className = start ? 'c-btn c-btn__timerBtn is-active' : 'c-btn c-btn__timerBtn is-in-active';
+		stopBtn.className = stop ? 'c-btn c-btn__timerBtn is-active' : 'c-btn c-btn__timerBtn is-in-active';
+		resetBtn.className = reset ? 'c-btn c-btn__timerBtn is-active' : 'c-btn c-btn__timerBtn is-in-active';
 	}
 
 	setBtnState(true, false, false);
