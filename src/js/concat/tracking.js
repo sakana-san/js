@@ -1,3 +1,4 @@
+/*
 //ノーマルタイプ
 window.onload = function() {
 	var fixNav = $('.p-sideCassette');
@@ -22,19 +23,19 @@ window.onload = function() {
 		}
 	});
 }
-
+*/
 //offset().top
 //一番上から、要素までの距離。
 
 
-/*
 //位置指定
 $(window).on('load', function() {
 	var fixedNav = $('.p-sideCassette');
 	var content = $('.p-content');
-	var test = $('.js-test');
+	var scrollStop = $('.is-scrollStop');
+	var scrollStopTop = scrollStop.offset().top;
 	var targetTop = fixedNav.offset().top;
-	var scroll = content.outerHeight(true) - test.height() + fixedNav.height();
+	var scroll = scrollStopTop - (fixedNav.height() - scrollStop.height());
 	console.log(scroll);
 	$(window).on('scroll', function() {
 		var ws = $(window).scrollTop();
@@ -49,5 +50,3 @@ $(window).on('load', function() {
 
 	});
 });
-
-*/
