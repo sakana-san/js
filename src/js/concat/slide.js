@@ -139,7 +139,7 @@ $(function() {
 	var slideMargin = parseInt(slideImgList.css('margin-right'));
 	var slideWidthTotal = (slideWidth + slideMargin);
 	var count = 0;
-
+	var started = false;
 	$('.c-slidePrev').on('click', function() {
 		count--;
 		if (count < 0) {
@@ -167,6 +167,16 @@ $(function() {
 		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
 		$(this).addClass('cur').siblings().removeClass('cur');
 	});
+	if(!started) {
+		started = true;
+		setInterval(autoPlay,5000);
+	}else {
+		started = false;
+	}
+	function autoPlay() {
+		$('.c-slideNext').click();
+	}
+
 
 /*
 	//スライド　さかな屋cafe編 js名変えた
