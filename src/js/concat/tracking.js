@@ -36,7 +36,6 @@ $(window).on('load', function() {
 	var scrollStopTop = scrollStop.offset().top;
 	var targetTop = fixedNav.offset().top;
 	var scroll = scrollStopTop - (fixedNav.height() - scrollStop.height());
-	console.log(scroll);
 	$(window).on('scroll', function() {
 		var ws = $(window).scrollTop();
 		$('.scroll').html(ws);
@@ -47,6 +46,5 @@ $(window).on('load', function() {
 		} else {
 			fixedNav.css({position: 'relative', top: 0});
 		}
-
 	});
 });
