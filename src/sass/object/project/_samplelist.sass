@@ -1,0 +1,33 @@
+.p-sampleList
+	margin-bottom: 40px
+	@extend %clearfix
+
+	.p-sampleList__item
+		float: left
+		width: 100px
+		margin-right: 20px
+		padding: 10px
+		cursor: pointer
+		border: solid 2px #B9E0A5
+		border-radius: 4px
+		text-align: center
+		&:hover
+			background: #f1f1f1
+
+.p-sampleList + .p-sampleList-boxContent
+	margin-top: 0
+
+.p-sampleList-boxContent
+	position: relative
+	width: 300px
+	height: 150px
+	margin: 20px 0 10px
+	background: #f1f1f1
+	&:before
+		content: ''
+		position: relative
+		top: 10px
+	p 
+		position: absolute
+		top: 61px
+		left: 113px
