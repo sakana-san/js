@@ -48,3 +48,37 @@ $(window).on('load', function() {
 		}
 	});
 });
+
+//最初非表示途中から表示
+$(window).on('load', function() {
+	var fixedtransition = $('.p-transition');
+	var content = $('.p-content');
+	var scrollStart = $('.is-scrollStart');
+	var contentTop = content.offset().top;
+	var fixedtransitionTop = fixedtransition.offset().top;
+	var scrollStartTop = scrollStart.offset().top;
+	var scroll = scrollStartTop - scrollStart.height();
+	console.log(scroll);
+	$(window).on('scroll', function() {
+		var ws = $(this).scrollTop();
+		if(ws > scroll) {
+			fixedtransition.css({position: 'fixed', bottom: 0}).fadeOut();
+			console.log('3です');
+		} else if (ws > contentTop){
+			fixedtransition.css({position: 'fixed', bottom: 0}).fadeIn();
+			console.log('フェードイン');
+		} else {
+			fixedtransition.fadeOut();
+			console.log('フェードアウト');
+		}
+	});
+});
+
+
+
+
+
+
+
+
+
