@@ -146,7 +146,7 @@ $(function() {
 			count = slideImgList.length - 1;
 			console.log(count);
 		} 
-		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
+		slideImg.animate({left: - slideWidthTotal * count + 70}, 1000);
 		$('.c-slideNav__listBtn').removeClass('cur');
 		$('.c-slideNav__listBtn').eq(count).addClass('cur');
 	});
@@ -156,7 +156,7 @@ $(function() {
 		if (count > slideImgList.length - 1) {
 			count = 0;
 		}
-		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
+		slideImg.animate({left: - slideWidthTotal * count + 70}, 1000);
 		$('.c-slideNav__listBtn').removeClass('cur');
 		$('.c-slideNav__listBtn').eq(count).addClass('cur');
 	});
@@ -164,7 +164,7 @@ $(function() {
 	$('.c-slideNav__listBtn:first').addClass('cur');
 	$('.c-slideNav__listBtn').on('click', function() {
 		count = $(this).index();
-		slideImg.animate({left: - slideWidthTotal * (count) + 70}, 1000);
+		slideImg.animate({left: - slideWidthTotal * count + 70}, 1000);
 		$(this).addClass('cur').siblings().removeClass('cur');
 	});
 	if(!started) {
