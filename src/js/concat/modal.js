@@ -17,6 +17,8 @@ $(function() {
 		});
 	});
 
+	$(window).resize(centeringModal);
+
 	function centeringModal() {
 		var width = $(window).width();
 		var height = $(window).height();
