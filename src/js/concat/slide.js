@@ -169,12 +169,15 @@ $(function() {
 	});
 	if(!started) {
 		started = true;
-		setInterval(autoPlay,5000);
+		autoPlay();
 	}else {
 		started = false;
 	}
 	function autoPlay() {
-		$('.c-slideNext').click();
+		var timer = setInterval(function() {
+			$('.c-slideNext').click();
+		}, 5000);
+		
 	}
 
 
