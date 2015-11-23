@@ -44,7 +44,6 @@ $(function() {
 	var modals = $('.is-modalRuns');
 	for (var i=0; i<modals.length; i++) {
 		modals[i].onclick = function() {
-			console.log(i);
 			//ボタンからフォーカスを外す
 			this.blur();
 			var target = this.getAttribute('data-target');
