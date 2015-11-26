@@ -1,7 +1,10 @@
 (function() {
-  var btn = document.getElementById('test');
+	var main = document.getElementById('main');
+	//main.innerHTML = 'tesuto';
 
-  btn.addEventListener('click', function() {
-    this.innerHTML  = 'おはようございます';
-  });
+	var item =  document.createElement('li');
+	item.textContent = '要素を入れます';
+	console.log(main);
+	main.appendChild(item);
+
 })();
