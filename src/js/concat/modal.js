@@ -1,4 +1,3 @@
-
 $(function() {
 	//ノーマルタイプのModal
 	$('.is-modalRun').on('click', function() {
@@ -28,7 +27,7 @@ $(function() {
 
 	function modalOverlay() {
 		$('.p-modalOverlay').fadeIn();
-		$('.p-modalOverlay, .c-btnModalClose').on('unbind click', function() {
+		$('.p-modalOverlay, .c-btnModalClose').on('click', function() {
 			$('.p-modalContent, .p-modalOverlay').fadeOut(function() {
 				$('.p-modalOverlay').remove();
 			});
