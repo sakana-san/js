@@ -1,10 +1,45 @@
+//即時関数バージョン
 (function() {
-	var main = document.getElementById('main');
-	//main.innerHTML = 'tesuto';
+	var onClick = document.getElementById('addUrl');
 
-	var item =  document.createElement('li');
-	item.textContent = '要素を入れます';
-	console.log(main);
-	main.appendChild(item);
+	onClick.addEventListener('click', function() {
+		bar();
+	});
 
+	function bar() {
+		var anchor = document.createElement('a');
+		var inputTxt = document.createTextNode(document.getElementById('favTxt').value);
+		anchor.appendChild(inputTxt);
+
+		anchor.setAttribute('href', document.getElementById('favUrl').value);
+		anchor.setAttribute('target', '_blank');
+
+		var inputLi = document.createElement('li');
+		inputLi.appendChild(anchor);
+
+		var list = document.getElementById('favList');
+		list.appendChild(inputLi);
+	}
 })();
+
+//普通のバージョン
+
+//html側にonclick="bar()"をつける
+/*
+
+function  bar() {
+	var anchor = document.createElement('a');
+	var inputTxt = document.createTextNode(document.getElementById('favTxt').value);
+	anchor.appendChild(inputTxt);
+
+	anchor.setAttribute('href', document.getElementById('favUrl').value);
+	anchor.setAttribute('target', '_blank');
+
+	var inputLi = document.createElement('li');
+	inputLi.appendChild(anchor);
+
+	var inputList = document.getElementById('favList');
+	inputList.appendChild(inputLi);
+
+*/
+
