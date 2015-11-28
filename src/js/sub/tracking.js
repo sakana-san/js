@@ -27,7 +27,6 @@ window.onload = function() {
 //offset().top
 //一番上から、要素までの距離。
 
-
 //位置指定
 $(window).on('load', function() {
 	var fixedNav = $('.p-sideCassette');
