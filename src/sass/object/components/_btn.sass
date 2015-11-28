@@ -1,4 +1,3 @@
-
 .c-slideNav__listBtn
 	display: inline-block
 	margin-left: 10px
@@ -26,3 +25,26 @@
 	cursor: pointer
 	&:hover
 		color: #00BBDD
+
+//モーダルボタン
+.c-btnModal
+	display: inline-block
+	font-size: 12px
+	color: #999
+	cursor: pointer
+	&:hover
+		@extend %hoverColor
+	&.c-btnModalOpen
+		padding: 10px
+		border: solid 2px #0BD
+		border-radius: 5px
+		&:hover
+			color: #fff
+			background: #0BD
+	&.c-btnModalLink
+		@extend .c-btnModalOpen
+		text-decoration: none
+		border: solid 2px #ccc
+		&:hover
+			color: #fff
+			background: #ccc

@@ -1,0 +1,44 @@
+.p-modalContent
+	display: none
+	position: fixed
+	width: 50%
+	border: solid 2px #ccc
+	padding: 10px 20px
+	text-align: center
+	margin: 1.5em auto 0
+	background: #fff
+	z-index: 2
+
+.p-modalOverlay
+	display: none
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 120%
+	background: rgba(0,0,0,0.75)
+	z-index: 1
+
+.p-modalContentArticle
+	display: none
+	position: fixed
+	width: 400px
+	margin-top: 20px
+	padding: 20px
+	background: #fff
+	border: solid 2px #ccc
+	border-radius: 5px
+	box-sizing: border-box
+	z-index: 2
+	
+	h1
+		margin: 0 0 10px 0
+		font-size: 16px
+
+	h1 + p
+		font-size: 14px
+		.accent
+			@extend %accentColor
+
+.p-modalContentList__btn
+	margin-top: 20px
