@@ -1,7 +1,6 @@
 
-
-//aタグを使って任意の場所にスクロール
 $(function() {
+	//aタグを使って任意の場所にスクロール
 	$('.anc').on('click', function() {
 		var url = this.href;
 		var part = url.split('#');
@@ -11,6 +10,7 @@ $(function() {
 		return false;
 	});
 
+	//aタグ無しバージョン
 	$('.c-sampleList__btn').on('click', function() {
 		var count = $(this).index();
 		var position = $('.p-sampleList-boxContent').eq(count).offset().top - 20;
@@ -23,4 +23,3 @@ $(function() {
 		return false;
 	});
 });
-
