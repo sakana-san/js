@@ -30,7 +30,6 @@ window.onload = function() {
 //位置指定
 $(window).on('load', function() {
 	var fixedNav = $('.p-sideCassette');
-	var content = $('.p-content');
 	var scrollStop = $('.is-scrollStop');
 	var scrollStopTop = scrollStop.offset().top;
 	var targetTop = fixedNav.offset().top;
@@ -57,7 +56,6 @@ $(window).on('load', function() {
 	var fixedtransitionTop = fixedtransition.offset().top;
 	var scrollStartTop = scrollStart.offset().top;
 	var scroll = scrollStartTop - scrollStart.height();
-	console.log(scroll);
 	$(window).on('scroll', function() {
 		var ws = $(this).scrollTop();
 		if(ws > scroll) {
