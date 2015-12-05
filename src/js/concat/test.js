@@ -1,12 +1,16 @@
 //即時関数バージョン
 (function() {
+	//okを押すと下にサイトリンクが貼られる仕組み
+	//function関数を作る
+	//最初のinputにサイト名を入れる
+	//次のinputにurlを入れる
 	var onClick = document.getElementById('addUrl');
 
 	onClick.addEventListener('click', function() {
-		bar();
+		textBox();
 	});
 
-	function bar() {
+	function textBox() {
 		var anchor = document.createElement('a');
 		var inputTxt = document.createTextNode(document.getElementById('favTxt').value);
 		anchor.appendChild(inputTxt);
@@ -42,4 +46,3 @@ function  bar() {
 	inputList.appendChild(inputLi);
 
 */
-
