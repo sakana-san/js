@@ -139,7 +139,16 @@ $(function() {
 	var slideMargin = parseInt(slideImgList.css('margin-right'));
 	var slideWidthTotal = (slideWidth + slideMargin);
 	var count = 0;
+	var timer;
 	var started = false;
+
+	if(!started) {
+		if(started) return;
+		started = true;
+		autoPlay();
+	}else {
+		started = false;
+	}
 	$('.c-slidePrev').on('click', function() {
 		count--;
 		if (count < 0) {
@@ -167,19 +176,77 @@ $(function() {
 		slideImg.animate({left: - slideWidthTotal * count + 70}, 1000);
 		$(this).addClass('cur').siblings().removeClass('cur');
 	});
-	if(!started) {
-		started = true;
-		autoPlay();
-	}else {
-		started = false;
-	}
+
 	function autoPlay() {
-		var timer = setInterval(function() {
+		$('.c-slideNext').click();
+		timer = setTimeout(function() {
+			autoPlay();
+		}, 5000);
+	}
+	/*
+	//setInterval編
+	function autoPlay() {
+		timer = setInterval(function() {
 			$('.c-slideNext').click();
 		}, 5000);
-		
 	}
+	*/
 
+/*
+	//setIntervalの書き方
+	var i = 0;
+	function show() {
+		console.log(i++);
+	}
+	setInterval(function() {
+			show();
+	}, 1000);
+*/
+/*
+	//setIntervalをfunctionに入れてみた
+	var i = 0;
+	function show() {
+		setInterval(function() {
+			console.log(i++);
+		}, 1000);
+	}
+	show();
+*/
+/*
+	//setTimoutの書き方
+	var i = 0;
+	function show() {
+		console.log(i++);
+	}
+	setTimeout(function() {
+		show();
+	}, 1000);
+*/
+/*
+	//setTimeoutをループさせる
+	var i = 0;
+	function show() {
+		console.log(i++);
+		setTimeout(function() {
+			show();
+		},1000);
+	}
+	show();
+*/
+/*
+	//setTimeoutを止める
+	var i = 0;
+	function show() {
+		var time = setTimeout(function() {
+			console.log(i++);
+			show();
+		}, 1000);
+		if (i > 5) {
+			clearTimeout(time);
+		}
+	}
+	show();
+*/
 
 /*
 	//スライド　さかな屋cafe編 js名変えた
@@ -266,5 +333,4 @@ for (var i = 0; i < 10; i++){
 }
 document.write("<p>2を10回加えた合計は" + sum + "</p>");
 */
-
 });
