@@ -70,12 +70,3 @@ $(window).on('load', function() {
 		}
 	});
 });
-
-
-
-
-
-
-
-
-
