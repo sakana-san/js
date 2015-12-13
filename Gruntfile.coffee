@@ -36,7 +36,7 @@ module.exports = (grunt) ->
 			images:
 				expand: true
 				cwd: '<%= paths.srcDir %>'
-				src: ['img/*.png','img/*.jpg']
+				src: ['img/*.png','img/*.jpg','img/*.gif']
 				dest: '<%= paths.distDir %>'
 			js:
 				expand: true
