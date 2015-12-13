@@ -42,7 +42,7 @@ $(function() {
 });
 
 
-/*
+
 $(function() {
 	//複数指定のモーダルタイプ
 	var nowModal = null;
@@ -92,7 +92,7 @@ $(function() {
 		$(nowModal).css({'left': pxLeft + 'px', 'top': pxTop + 'px'});
 	}
 });
-*/
+
 
 
 
