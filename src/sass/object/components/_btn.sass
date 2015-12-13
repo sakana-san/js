@@ -27,24 +27,24 @@
 		color: #00BBDD
 
 //モーダルボタン
-.c-btnModal
+.c-btn
 	display: inline-block
 	font-size: 12px
 	color: #999
 	cursor: pointer
 	&:hover
 		@extend %hoverColor
-	&.c-btnModalOpen
+	&.c-btnPrimary
 		padding: 10px
-		border: solid 2px #0BD
+		border: solid 2px $borderPrimaryBtnColor
 		border-radius: 5px
 		&:hover
 			color: #fff
-			background: #0BD
-	&.c-btnModalLink
-		@extend .c-btnModalOpen
+			background: $hover
+	&.c-btnSecondary
+		@extend .c-btnPrimary
 		text-decoration: none
-		border: solid 2px #ccc
+		border: solid 2px $borderSecondaryBtnColor
 		&:hover
 			color: #fff
-			background: #ccc
+			background: $borderSecondaryBtnColor
