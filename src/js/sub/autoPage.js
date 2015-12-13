@@ -32,7 +32,9 @@ $(function() {
 	$('#zipCodesecondary').on('keyup', check);
 });
 
+
 //簡易掲示板
+//危険使わない http://edu.happy-kakurembo.com/api/bbs/messages
 $(function() {
 	var showMessages = function(messages) {
 		var boxes = [];
@@ -40,16 +42,17 @@ $(function() {
 			var box = $('<div>').addClass('response');
 			$('<p>').addClass('body').text(messages[i].body).appendTo(box);
 			$('<p>').addClass('name').text('太郎さん' + messages[i].remoteIp).appendTo(box);
-			$('<p>').addClass('createAt').text(messages[i].createAt).appendTo(box);
+			$('<p>').addClass('createdAt').text(messages[i].createdAt).appendTo(box);
 			boxes.push(box);
 		}
-		$('#messages').empty().append(boxes);
+		$('#messages').empty().append(boxes).remove();
 	};
 	var loadMessages = function() {
 		$.ajax({
-			url: "http://edu.happy-kakurembo.com/api/bbs/messages",
+			url: '',
 			type: 'GET',
 			dataType: 'json',
+			cache : false,
 		}).done(function(res) {
 			showMessages(res.data);
 		});
@@ -57,15 +60,14 @@ $(function() {
 	loadMessages();
 
 	$('#postButton').on('click', function(e) {
-		var body = $('textarea[name=body]');
-		if(body.val().trim().length !== 0) {
+		var body = $('response');
+		if(body) {
 			$.ajax({
-				url: 'http://edu.happy-kakurembo.com/api/bbs/messages',
+				url: '',
 				type: 'POST',
-				data: $('form').serialize(),
-				dataType: 'json'
+				dataType: 'json',
+				cache : false,
 			}).done(function(res) { 
-				body.val('');
 				loadMessages();
 			});
 		}
@@ -79,8 +81,8 @@ $(function() {
 
 	$('#deleteButton').on('click', function(e) {
 		$.ajax({
-			url: "http://edu.happy-kakurembo.com/api/bbs/messages",
-			type: 'GET',
+			url: 'http://edu.happy-kakurembo.com/api/bbs/messages',
+			type: 'DELETE',
 			dataType: 'json',
 		}).done(function(res) {
 			$('.response').fadeOut();
