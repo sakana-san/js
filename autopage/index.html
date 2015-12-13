@@ -12,7 +12,35 @@
 
 	<div class="p-loadingPage">
 		<h1 class="c-heading--primary">ajaxでローディング中に画像表示</h1>
+		<div class="p-contents"></div>
 		<div class="c-btn c-btnPrimary is-click">クリックしてね</div>
+	</div>
+
+	<div class="p-postNumberPage">
+		<h1 class="c-heading--primary">郵便番号を入力してみよう</h1>
+		<p>
+			<span class="c-label">〒</span>
+			<input type="text" id="zipCodePrimary" name="zipCodePrimary" size="3" maxlength="3">
+			<span>-</span>
+			<input type="text" id="zipCodesecondary" name="zipCodesecondary" size="4" maxlength="4">
+		</p>
+		<p>
+			<span class="c-label">住所</span>
+			<input type="text" id="address" name="address" size="40">
+		</p>
+	</div>
+
+	<div class="p-bulletinBoardPage">
+		<h1 class="c-heading--primary">簡易掲示板を作ってみよう</h1>
+		<div id="messages"></div>
+		<form>
+			<p><textarea name="body" class="c-textArea c-textAreaDefault"></textarea></p>
+			<div>
+				<p id="postButton" class="c-btn c-btnPrimary">投稿</p>
+				<p id="reloadButton" class="c-btn c-btnSecondary">リロード</p>
+				<p id="deleteButton" class="c-btn c-btnSecondary">消去</p>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
