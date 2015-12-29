@@ -1,111 +1,111 @@
 /*
-var obj = {a:'大阪代表', b:'大阪桐蔭'};
-obj.baseball = function() {
-	var introduce = '平成最強の強豪校、' + this.a + 'の' + this.b + 'です';
-	return introduce;
-};
-
-var obj2 = {a: '和歌山代表', b: '智弁和歌山'};
-obj2.baseball = obj.baseball;
-*/
-
-/*
-//通常
-var cast;
-var cityHunter = ['さえば', 'まきむらかおり','ファルコン', '野上冴子'];
-function member() {
-	var list = Math.floor(Math.random() * cityHunter.length);
-	cast = cityHunter[list];
-}
-member();
-console.log(cast);
-*/
-
-/*
-//引数と返り値
-var testName = document.getElementById('testCity');
-var cast = member(['さえば', 'まきむらかおり', '海坊主', '野上冴子']);
-testName.innerHTML = cast;
-function member(cityHunter) {
-	var list = Math.floor(Math.random() * cityHunter.length);
-	return cityHunter[list];
-}
-
-var testes = test(['大吉','中吉','小吉']);
-function test(omikuji) {
-	var resultTest = Math.floor(Math.random() * omikuji.length);
-	testes = omikuji[resultTest];
-	return testes;
-}
-console.log(testes);
-*/
-
-/*
-//無名関数
-var func = function() {
-	var randomint = Math.floor(Math.random() * 6) + 1;
-	return randomint;
-};
-var result = func();
+//1-3　関数の因数と戻り値
+//var salary = 200000;
+var usedMoney = Math.floor(Math.random() * 45000);
+//var result;
+var result = getMoney(200000);
 console.log(result);
+function getMoney(salary) {
+	var poolMoney = salary - usedMoney;
+	//変数に代入して処理ができるようになる
+	//result = poolMoney;
+	return poolMoney;
+}
 
-func = function(radius) {
-	var circleArea = Math.pow(radius,2) * Math.PI;
-	return circleArea;
-};
-result = func(result);
-console.log(result);
-func = null;
-console.log(null);
+// ※ function関数の場合h先に読み込まれる
 */
+
 /*
-//コンストラクタからインスタンス
-//コンストラクタにする場合頭は大文字
-function Product(name, version) {
-	this.name = name;
-	this.version = version;
+//2-1
+//関数をメソッドとして定める
+var obj = {
+	x: 'さえば',
+	y: 'まきむら'
+};
+
+obj.getDistance = function () {
+	var cityHunter = this.x + 'と' + this.y;
+	return cityHunter;
 }
-//インスタンスを作る
-var st = new Product('sublimeText', '3');
-var ae = new Product('afterEffect','CC2015');
-console.log(st, ae);
+
+console.log(obj.getDistance());
+
+var obj2 = {
+	x: 'りょう',
+	y: 'かおり'
+};
+
+obj2.getDistance = obj.getDistance;
+console.log(obj2.getDistance());
 */
 
-//コンストラクタにメソッドを定める
-function SublimeText(year, version) {
-	this.className = 'sublimeText';
-	this.year = year;
-	this.version = version;
+/*
+//2-2
+//コンストラクタからインスタンスをつくる
+//コンストラクタ
+function Product(title, hero) {
+	//プロパティ
+	this.mangaName = title;
+	this.character = hero;
 }
 
-SublimeText.prototype.toString = 
-AfterEffect.prototype.toString = 
+//インスタンス
+var saeba = new Product('cityHunter', 'さえばりょう');
+var hanma = new Product('刃牙道', '範馬勇次郎');
+
+console.log(saeba, hanma);
+*/
+
+/*
+//2-3
+//コンストラクタにメッソッドを定める
+//コンストラクタ
+function cityHunter(title, hero) {
+	this.className = 'cityHunter';
+	//プロパティ
+	this.mangaName = title;
+	this.character = hero;
+}
+cityHunter.prototype.toString = 
+bakidou.prototype.toString = 
 function() {
 	return '[object ' + this.className + ']';
 };
 
-function AfterEffect(year, version) {
-	this.className = 'afterEffect';
-	this.year = year;
-	this.version = version;
+function bakidou(title, hero) {
+	this.className = 'bakidou';
+	//プロパティ
+	this.mangaName = title;
+	this.character = hero;
 }
-var st = new SublimeText('2015', '3');
-var ae = new AfterEffect('2015', 'CC');
-console.log(st.toString(),ae.toString());
-//alert(st);
 
+//インスタンス
+var saeba = new cityHunter('cityHunter', 'さえばりょう');
+var hanma = new bakidou('刃牙道', '範馬勇次郎');
 
+console.log(saeba.toString(), hanma.toString());
+//alert(saeba);
 
+// ※ toStringメソッドは引数をとらない
+*/
 
+/*
+//2-7
+//returnの機能
+function includeNegative(array) {
+	var count = array.length;
+	for (var i=0; i<count; i++) {
+		//確認のコンソール
+		console.log(i,array[i]);
+		if (array[i] < 0) {
+			//一つでもマイナスが含まれてたらtrueを返す
+			return true;
+		}
+	}
+	//マイナスがなければfalseを返す
+	return false;
+}
+console.log(includeNegative([0,-1,2,3,4,5]));
 
-
-
-
-
-
-
-
-
-
-
-
+// ※ returnは値を返す機能の前に、functionの実行をそこで止めるという機能がある。
+*/
