@@ -32,10 +32,16 @@ function init() {
 
 window.onload = init;
 
+//ulで囲む
+//for inでループさせる
+//aタグつくる
+//liつくる
+//liにクラス名をif文でつける
+
 
 /*
 function createA(url,key) {
-	var cN = ['c-iconFacebook', 'c-iconTwitter', 'c-iconYoutbe'];
+	var cN = ['c-iconFacebook', 'c-iconTwitter', 'c-iconYoutube'];
 	for (var i=0; i<cN.length; i++) {
 		var output = '<li class="' + cN[i] + '"><a href="' + url + '">'+ key + '</a></li>';
 		console.log(output);
@@ -47,6 +53,7 @@ function createA(url,child) {
 
 		return output;
 	}
+var cN = ['c-iconFacebook', 'c-iconTwitter', 'c-iconYoutube'];
 var socialMedia = {
 	facebook: 'https//www.facebook.com/',
 	twitter: 'https//twitter.com/',
