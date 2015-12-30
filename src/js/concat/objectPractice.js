@@ -1,3 +1,51 @@
+//dafault
+/*
+var omikuji;
+var a = ['大吉','吉','中吉','凶'];
+
+getOmikuji();
+
+console.log(omikuji);
+function getOmikuji() {
+	var result = Math.floor(Math.random() * a.length);
+	omikuji = result;
+}
+*/
+
+
+//returnを返す
+/*
+//var omikuji;
+//var a = ['大吉','吉','中吉','凶'];
+
+var omikuji = getOmikuji(['大吉','吉','中吉','凶']);
+
+console.log(omikuji);
+function getOmikuji(a) {
+	var result = Math.floor(Math.random() * a.length);
+	return result;
+}
+*/
+
+//名前のない関数
+/*
+var omikujiName = ['大吉', '吉', '中吉', '凶'];
+var func = function() {
+	var omikujiRandom = Math.floor(Math.random() * omikujiName.length);
+	return omikujiRandom;
+};
+
+var result = func();
+console.log(result);
+
+func = function(OutputName) {
+	var outPut = omikujiName[OutputName];
+	return outPut;
+}
+result = func(result);
+console.log(result);
+*/
+
 /*
 //1-3　関数の因数と戻り値
 //var salary = 200000;
