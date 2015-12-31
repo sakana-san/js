@@ -157,3 +157,23 @@ console.log(includeNegative([0,-1,2,3,4,5]));
 
 // ※ returnは値を返す機能の前に、functionの実行をそこで止めるという機能がある。
 */
+
+
+//3-1
+//ローカル変数とグローバル変数
+var count = 0;
+function countUp() {
+	var count = 10;
+	count++;
+	this.count++; //グローバルな変数を参照
+	console.log(count); //11
+}
+
+countUp();
+console.log(count); //0、グローバル参照時は1になる
+
+
+
+
+
+

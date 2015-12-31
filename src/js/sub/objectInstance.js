@@ -1,9 +1,9 @@
-var socialMedia = {
-	facebook: 'https://www.facebook.com/',
-	twitter: 'https://twitter.com/',
-	youtube: 'https://www.youtube.com/'
-};
 function init() {
+	var socialMedia = {
+		facebook: 'https://www.facebook.com/',
+		twitter: 'https://twitter.com/',
+		youtube: 'https://www.youtube.com/'
+	};
 	var icons = document.querySelector('.p-socialMedia');
 	var socialMediaList = '<ul class="p-socialMediaList">';
 	for(key in socialMedia) {
