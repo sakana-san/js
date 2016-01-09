@@ -1,50 +1,69 @@
-//dafault
-/*
-var omikuji;
-var a = ['大吉','吉','中吉','凶'];
+//関数無し
+// var omikuji = ['大吉','吉','中吉','凶'];
+// var resultName = document.querySelector('.test');
+// var result = Math.floor(Math.random() * omikuji.length);
+// var results = omikuji[result];
 
-getOmikuji();
+// resultName.innerHTML = results;
 
-console.log(omikuji);
-function getOmikuji() {
-	var result = Math.floor(Math.random() * a.length);
-	omikuji = result;
-}
-*/
+// //引数を渡す
+// var omikuji = ['大吉','吉','中吉','凶'];
+// var resultName = document.querySelector('.test');
+// var answer;
 
+// getOmikuji('今日の運勢は', omikuji);
 
-//returnを返す
-/*
-//var omikuji;
-//var a = ['大吉','吉','中吉','凶'];
+// function getOmikuji(str1,str2) {
+// 	var results = Math.floor(Math.random() * str2.length);
+// 	answer = str1 + str2[results] + 'です。';
+// 	resultName.innerHTML = answer;
+// }
 
-var omikuji = getOmikuji(['大吉','吉','中吉','凶']);
+// //returnを返す
+// var omikuji = ['大吉','吉','中吉','凶'];
+// var resultName = document.querySelector('.test');
+// var answer;
+// resultName.innerHTML = getOmikuji('今日の運勢は', omikuji);
+// function getOmikuji(str1,str2) {
+// 	var results = Math.floor(Math.random() * str2.length);
+// 	answer = str1 + str2[results] + 'です。';
+// 	return answer;
+// }
 
-console.log(omikuji);
-function getOmikuji(a) {
-	var result = Math.floor(Math.random() * a.length);
-	return result;
-}
-*/
+// //名前のない関数
+// var omikujiName = ['大吉', '吉', '中吉', '凶'];
+// var resultName = document.querySelector('.test');
 
-//名前のない関数
-/*
-var omikujiName = ['大吉', '吉', '中吉', '凶'];
-var func = function() {
-	var omikujiRandom = Math.floor(Math.random() * omikujiName.length);
-	return omikujiRandom;
-};
+// var getOmikuji = function() {
+// 	var omikujiRandom = Math.floor(Math.random() * omikujiName.length);
+// 	return omikujiRandom;
+// };
 
-var result = func();
-console.log(result);
+// var result = getOmikuji();
+// console.log(result);
+// getOmikuji = function(key) {
+// 	var outPut = omikujiName[key];
+// 	return outPut;
+// };
+// result = getOmikuji(result);
+// console.log(result);
 
-func = function(OutputName) {
-	var outPut = omikujiName[OutputName];
-	return outPut;
-}
-result = func(result);
-console.log(result);
-*/
+// var omikujiName = ['大吉', '吉', '中吉', '凶'];
+// var func = function() {
+// 	var omikujiRandom = Math.floor(Math.random() * omikujiName.length);
+// 	return omikujiRandom;
+// };
+
+// var result = func();
+// console.log(result);
+
+// func = function(OutputName) {
+// 	var outPut = omikujiName[OutputName];
+// 	return outPut;
+// }
+// result = func(result);
+// console.log(result);
+
 
 /*
 //1-3　関数の因数と戻り値
@@ -158,7 +177,7 @@ console.log(includeNegative([0,-1,2,3,4,5]));
 // ※ returnは値を返す機能の前に、functionの実行をそこで止めるという機能がある。
 */
 
-
+/*
 //3-1
 //ローカル変数とグローバル変数
 var count = 0;
@@ -171,6 +190,76 @@ function countUp() {
 
 countUp();
 console.log(count); //0、グローバル参照時は1になる
+*/
+
+//3-2
+// プロトタイプオブジェクトを変数に収める
+// function Point(title, magazine) {
+// 	 this.title = '少年ジャンプ';
+// 	 this.magazine = 'シティーハンター';
+// }
+// var p = Point.prototype;
+// p.getDistance = function() {
+// 	var saebaRyo = '雑誌' + this.title + 'の人気作品' + this.magazine;
+// 	return saebaRyo;
+// };
+
+// p.add = function(title, magazine) {
+// 	this.title += 'とある雑誌';
+// 	this.magazine += 'と見せかけて少年マガジン';
+// };
+
+// // p.scale = function(scale) {
+// // 	this.title *= scale;  
+// // 	this.magazine *= scale;  
+// // };
+
+// var point = new Point('雑誌名', '漫画名');
+// point.add('出身地', '何歳なの');
+// // point.scale('どこで連載している');
+// console.log(point);
+// console.log(point.getDistance());
+// var Point;
+// (function() {
+// 	function Point(x, y) {
+// 		this.x = x;
+// 		this.y = y;
+// 	}
+
+// 	var p = Point.prototype;
+// 	p.getDistance = function() {
+// 		var square = Math.pow(this.x, 2) + Math.pow(this.y, 2);
+// 		return Math.sqrt(square);
+// 	};
+// 	p.add = function(x, y) {
+// 		this.x += x;
+// 		this.y += y;
+// 	};
+// 	p.scale = function(scale) {
+// 		this.x *= scale;
+// 		this.y *= scale;
+// 	};
+// 	this.Point = Point;
+// })();
+
+
+// var point = new Point(2, 5);
+// point.add(3, -2);
+// point.scale(1);
+// console.log(point);
+// console.log(point.getDistance());
+// console.log(p);
+
+var test = 'かきくけこ';
+(function() {
+	var test = 'あいうえお';
+	console.log(this.test);
+	this.test = test;
+
+	console.log(test);
+})();
+
+console.log(test);
 
 
 
