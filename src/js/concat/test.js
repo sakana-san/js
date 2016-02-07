@@ -1,11 +1,17 @@
-//即時関数バージョン
-(function() {
 	//okを押すと下にサイトリンクが貼られる仕組み
 	//function関数を作る
-	//最初のinputにサイト名を入れる
-	//次のinputにurlを入れる
-	var onClick = document.getElementById('addUrl');
+	//aタグを作る
+	//inputにサイト名を入れる
+	//aタグにinputTextを入れる
+	//aタグのhrefにinputにurlを入れる
+	//li作る
+	//liにaタグ入れる
+	//ul取得
+	//ulにliを入れる
 
+//即時関数バージョン
+(function() {
+	var onClick = document.getElementById('addUrl');
 	onClick.addEventListener('click', function() {
 		textBox();
 	});
