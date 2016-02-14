@@ -4,16 +4,12 @@ $(function() {
 	//コンテンツをセンターリングする
 	//オーバーレイを表示させてフェードアウトさせる
 	//センターにあるモーダルコンテンツをリサイズしても変動しないようにさせる
-	
 	//ノーマルタイプのModal
 	$('.is-modalRun').on('click', function() {
 		//キーボード操作などにより、オーバーレイが多重起動するのを防止する
 		$(this).blur();
 		if($('.p-modalOverlay')[0]) return false;
-
-		$('.p-modal').append('<div class="p-modalOverlay"></div>');
-		$('.p-modalContent').fadeIn();
-
+		modalContentHeight();
 		centeringModal();
 		modalOverlay();
 	});
@@ -28,16 +24,23 @@ $(function() {
 		var pxLeft = ((width - contentWidth) / 2);
 		var pxTop = ((height - contentHeight) / 2);
 
-		$('.p-modalContent').css({'left': pxLeft + 'px', 'top': pxTop + 'px'});
+		$('.p-modalContent').css({left: pxLeft + 'px', top: pxTop + 'px'});
 	}
 
 	function modalOverlay() {
+		$('.p-modal').append('<div class="p-modalOverlay"></div>');
+		$('.p-modalContent').fadeIn();
 		$('.p-modalOverlay').fadeIn();
 		$('.p-modalOverlay, .c-btnModalClose').on('click', function() {
 			$('.p-modalContent, .p-modalOverlay').fadeOut(function() {
 				$('.p-modalOverlay').remove();
 			});
 		});
+	}
+	function modalContentHeight() {
+		var mH = 320;
+		console.log(mH);
+		$('.p-ImageContent').css({'height': mH + 'px'});
 	}
 });
 

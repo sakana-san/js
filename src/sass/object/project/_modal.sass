@@ -8,6 +8,19 @@
 	margin: 1.5em auto 0
 	background: #fff
 	z-index: 2
+	.p-ImageContent
+		position: relative
+		width: 300px
+		margin: 0 auto
+		overflow: hidden
+		.p-ImageSlide
+			@extend %clearfix
+			position: absolute
+			top: 0
+			left: 0
+			width: 1200px
+			.p-ImageSlide__list
+				float: left
 
 .p-modalOverlay
 	display: none
