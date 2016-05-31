@@ -5,8 +5,8 @@
 
 	btn.addEventListener('click',function(){
 		var results = ['大吉','小吉','中吉','吉','凶'];
-		var result = Math.floor(Math.random() * results.length);
-		resultName.innerHTML = results[result];
+		var result = results[Math.floor(Math.random() * results.length)];
+		resultName.innerHTML = result;
 	});
 	btn.addEventListener('mousedown',function(){
 		this.className = 'pushed';
