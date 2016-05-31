@@ -88,5 +88,5 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 
 	#tasks
-	grunt.registerTask 'default',['concat','copy:js','sprite','copy:images','watch']
+	grunt.registerTask 'default',['clean:deleteDir', 'concat','copy:js','copy:css', 'sprite','copy:images','watch']
 	grunt.registerTask 'build',['clean:deleteDir','copy:html','copy:css','copy:images','copy:js','sprite','cssmin','concat','uglify']
