@@ -1,32 +1,63 @@
-(function() {
-	'use strict';
-	var btn = document.getElementById('f-js-btn');
-	var result = document.getElementById('f-js-result');
-	var isStarted = false;
-	var startTime;
-	var diff;
-	var msg = 'STOP at 00:05!';
+function FiveTimes() {
+	this.initialize();
+}
 
-	btn.addEventListener('click',function() {
-		if(!isStarted) {
-			isStarted = true;
-			this.innerHTML  ='STOP';
-			startTime = Date.now();
-			result.innerHTML = msg;
-		} else {
-			isStarted = false;
-			this.innerHTML = 'START';
-			diff = (Date.now() - startTime) / 1000 -5;
-			if(diff >= -0.1 && diff <= 0.1 ) {
-				result.innerHTML = 'Perfect!';
-			} else if(diff > 0) {
-				result.innerHTML = 'あなたは' + diff.toFixed(2) + '遅いです。';
+FiveTimes.prototype = {
+	initialize: function() {
+		this.flag = false;
+		this.startTime = 0;
+		this.resultText = document.getElementById('f-js-result');
+		this.countDownText = document.getElementById('f-js-countDown');
+		this.btn = document.getElementById('f-js-btn');
+		this.bindClick();
+	},
+	bindClick: function() {
+		var _this = this;
+		this.btn.addEventListener('click', function() {
+			if (!_this.flag) {
+				_this.flag = true;
+				_this.bindStart();
+
+
 			} else {
-				result.innerHTML = 'あなたは' + Math.abs(diff).toFixed(2) + '速いです。';
+				_this.flag = false;
+				_this.bindStop();
 			}
+
+		});
+	},
+	bindStart: function() {
+		this.startTime = Date.now();
+		this.bindUpdate();
+		this.btn.innerHTML = 'STOP';
+	},
+	bindStop: function() {
+		var diff = (Date.now() - this.startTime) / 1000 - 5;
+		clearTimeout(this.timerId);
+		this.resultText.innerHTML = 'STOP at 00:05!';
+		this.btn.innerHTML = 'START';
+		if (diff <= 0.1 && diff >= -0.1) {
+			this.resultText.innerHTML = 'perfectです';
+		} else if (diff > 0.1) {
+			this.resultText.innerHTML = diff.toFixed(2) + '秒遅いです！';
+		} else {
+			this.resultText.innerHTML = Math.abs(diff).toFixed(2) + '秒速いです！';
 		}
-	});
-})();
+	},
+	bindUpdate: function() {
+		var _this = this;
+		this.timerId = setTimeout(function() {
+			//Date.now() - _this.startTimeで1000桁になる
+			_this.timer = Date.now() - _this.startTime;
+			//ここで秒数に変換する
+			_this.countDownText.innerHTML = (_this.timer / 1000).toFixed(2);
+			_this.bindUpdate();
+		});
+	}
+};
+
+new FiveTimes();
+
 
 //★ Date.now();
 //現在の日付と時刻を取得します。
@@ -51,3 +82,6 @@
 //Math.abs(null);     // 0
 //Math.abs("string"); // NaN
 //Math.abs();         // NaN
+
+//Date.nowを秒数にするには、Date.now() / 1000にする
+
