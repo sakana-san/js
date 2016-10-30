@@ -1,20 +1,24 @@
-// $(function() {
-// 	var answer = document.getElementById(('answer'));
-// 	var answerResult = document.getElementById(('answerResult'));
-// 	answer.addEventListener('click', function() {
-// 		kigsOrder();
+$(function() {
+	var answer = document.getElementById(('answer'));
+	var answerResult = document.getElementById(('answerResult'));
+	answer.addEventListener('click', function() {
+		kingsOrder();
 		
-// 	});
-// 	function kigsOrder() {
-// 		var num = document.getElementById('num').value;
-// 		var p1 = Math.floor(Math.random() * num + 1);
-// 		var orders = [
-// 			'クイズを出しなさい',
-// 			'褒めなさい',
-// 			'ドリンクを注ぎなさい',
-// 			'クイズを出しなさい'
-// 		];
-// 		var order = orders[Math.floor(Math.random() * orders.length)];
-// 		answerResult.innerHTML = p1 + 'の人が ' + order;
-// 	}
-// });
+	});
+	function kingsOrder() {
+		var num = document.getElementById('num').value;
+		var orders = [
+			'クイズを出しなさい',
+			'褒めなさい',
+			'ドリンクを注ぎなさい',
+			'クイズを出しなさい'
+		];
+		if (num.match(/^[1-9][1-9]*$/) && num != '') {
+			var order = orders[Math.floor(Math.random() * orders.length)];
+			answerResult.innerHTML = num + 'の人が ' + order;
+		} else {
+			alert('数字を入力してください');
+			answerResult.innerHTML = 'こちらに結果が表示されます。';
+		}
+	}
+});
