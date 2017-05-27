@@ -1,19 +1,19 @@
 
 (function() {
-	var btn = document.getElementById('js-btn');
-	var resultName = document.getElementById('js-result');
+  var btn = document.getElementById('js-btn');
+  var resultName = document.getElementById('js-result');
 
-	btn.addEventListener('click',function(){
-		var results = ['大吉','小吉','中吉','吉','凶'];
-		var result = results[Math.floor(Math.random() * results.length)];
-		resultName.innerHTML = result;
-	});
-	btn.addEventListener('mousedown',function(){
-		this.className = 'pushed';
-	});
-	btn.addEventListener('mouseup',function(){
-		this.className = 'btn';
-	});
+  btn.addEventListener('click',function(){
+    var results = ['大吉','小吉','中吉','吉','凶'];
+    var result = results[Math.floor(Math.random() * results.length)];
+    resultName.innerHTML = result;
+  });
+  btn.addEventListener('mousedown',function(){
+    this.className = 'pushed';
+  });
+  btn.addEventListener('mouseup',function(){
+    this.className = 'btn';
+  });
 })();
 
 /*
@@ -35,7 +35,6 @@
 })();
 */
 
-てすとだよ
 /*
 (function() {
  document.getElementById('js-btn').addEventListener('click', function() {
